@@ -1,57 +1,10 @@
-#include "./gost28147_89.hpp"
-
-#pragma once
-
-template<typename ValueType>
-std::vector<ValueType> slice_vector(const std::vector<ValueType> &source, const std::size_t from, const std::size_t len)
-{
-    std::vector<ValueType> response {};
-    if (from + len > source.size())
-    {
-        std::copy(std::begin(source) + from, std::end(source), std::begin(response));
-    }
-    else
-    {
-        std::copy(std::begin(source) + from, std::begin(source) + from + len, std::begin(response));
-    }
-
-    return response;
-}
-
-template<typename ValueType>
-std::vector<std::vector<ValueType>> split_vector_on_blocks(const std::vector<ValueType> &source, const std::size_t block_size)
-{
-    std::vector<std::vector<ValueType>> response {};
-
-    for (std::size_t index {0}; index < source.size(); index += block_size)
-    {
-        response.push_back(slice_vector<ValueType>(source, index, index + block_size));
-    }
-
-    return response;
-}
-
-template<typename ValueType>
-void print_vector(const std::vector<ValueType> &source)
-{
-    for (const auto &value : source)
-    {
-        std::cout << value << ' ';
-    }
-    std::cout << '\n';
-}
-
-template<typename ValueType>
-void print_2d_vector(const std::vector<std::vector<ValueType>> &source)
-{
-    for (const auto &value : source)
-    {
-        print_vector(value);
-    }
-}
+#include <cstdint>
+#include <iostream>
+#include <vector>
+#include "./utils.cpp"
 
 const uint32_t s_box[8][16]{
-        {9,   6,   3,   2,   8,   0xB, 1,   7,   0xA, 4,   0xE, 0xF, 0xC, 0x0, 0xD, 5},
+        {9,   0x6, 0x3, 0x2, 0x8, 0xB, 0x1, 0x7, 0xA, 0x4, 0xE, 0xF, 0xC, 0x0, 0xD, 0x5},
         {0x3, 0x7, 0xE, 0x9, 0x8, 0xA, 0xF, 0x0, 0x5, 0x2, 0x6, 0xC, 0xB, 0x4, 0xD, 0x1},
         {0xE, 0x4, 0x6, 0x2, 0xB, 0x3, 0xD, 0x8, 0xC, 0xF, 0x5, 0xA, 0x0, 0x7, 0x1, 0x9},
         {0xE, 0x7, 0xA, 0xC, 0xD, 0x1, 0x3, 0x9, 0x0, 0x2, 0xB, 0x4, 0xF, 0x8, 0x5, 0x6},
@@ -61,114 +14,80 @@ const uint32_t s_box[8][16]{
         {0xB, 0xA, 0xF, 0x5, 0x0, 0xC, 0xE, 0x8, 0x6, 0x2, 0x3, 0x9, 0x1, 0x7, 0xD, 0x4}
 };
 
-// On that step, when we influence by keys
-const std::vector<uint8_t> subkey_sequence{
-        0, 1, 2, 3, 4, 5, 6, 7,
-        0, 1, 2, 3, 4, 5, 6, 7,
-        0, 1, 2, 3, 4, 5, 6, 7,
-        7, 6, 5, 4, 3, 2, 1, 0,
+enum class Mode
+{
+    ENCRYPT,
+    DECRYPT
 };
 
 
-uint8_t ACT_ENCRYPT = 0;
-uint8_t ACT_DECRYPT = 0x1F;
+std::vector<uint8_t> key_map{0, 1, 2, 3, 4, 5, 6, 7, 0, 1, 2, 3, 4, 5, 6, 7, 0, 1, 2, 3, 4, 5, 6, 7, 7, 6, 5, 4, 3, 2,
+                             1, 0};
 
-// F
-const uint32_t transform_function(const uint32_t a, const uint32_t b)
+std::vector<uint8_t>
+transform_by_gost_28147_89(const Mode &mode, std::vector<uint8_t> &input_block, std::vector<std::vector<uint8_t>> &key)
 {
-    const uint64_t a_transformed{a};
-    const uint64_t b_transformed{a};
+    std::vector<uint8_t> data{slice_vector(input_block, 0, 8)};
 
-    const uint64_t sum{a_transformed + b_transformed};
-    const uint32_t sum_with_module = sum & 0x0000FFFF; // sum % (2 ** 32)
+    std::vector<uint8_t> B{slice_vector(data, 0, 4)};
+    std::vector<uint8_t> A{slice_vector(data, 4, 4)};
 
-    const uint32_t transformed{
-            s_box[0][sum_with_module & 0xF] |
-            s_box[1][(sum_with_module >> 4) & 0xF] << 4 |
-            s_box[2][(sum_with_module >> 8) & 0xF] << 8 |
-            s_box[3][(sum_with_module >> 12) & 0xF] << 12 |
-            s_box[4][(sum_with_module >> 16) & 0xF] << 16 |
-            s_box[5][(sum_with_module >> 20) & 0xF] << 20 |
-            s_box[6][(sum_with_module >> 24) & 0xF] << 24 |
-            s_box[7][(sum_with_module >> 28) & 0xF] << 28
-    };
 
-    return (transformed << 11) | (transformed >> (32 - 11));
-}
-
-const std::vector<uint32_t> get_uint32_subkeys(const std::vector<uint8_t> &source_key)
-{
-    std::vector<uint32_t> response{};
-    const std::vector<std::vector<uint8_t>> key_groups{split_vector_on_blocks(source_key, 8)};
-
-    for (const auto &group : key_groups)
+    for (int k = 0; k < 32; k++)
     {
-        const uint32_t value{
-                uint32_t{group[0]}
-                | (uint32_t{group[1]} << 8)
-                | (uint32_t{group[2]} << 16)
-                | (uint32_t{group[3]} << 24)
+        auto key_string{mode == Mode::ENCRYPT ? key[key_map[k]] : key[key_map[31 - k]]};
+
+        uint32_t key_part{
+                uint32_t{key_string[0]} << 24
+                | (uint32_t{key_string[1]} << 16)
+                | (uint32_t{key_string[2]} << 8)
+                | (uint32_t{key_string[3]})
         };
-        response.push_back(value);
-    }
 
-    return response;
-}
+        uint32_t a_part{
+                uint32_t{A[0]} << 24
+                | (uint32_t{A[1]} << 16)
+                | (uint32_t{A[2]} << 8)
+                | (uint32_t{A[3]})
+        };
 
+        uint32_t buffer = a_part + key_part;
+        buffer &= 0xffffffff; // A + K (mod 2^32)
 
-std::vector<uint8_t> encrypt_block(const std::vector<uint8_t> &block, const std::vector<uint32_t> &sub_keys, const uint8_t mode)
-{
-    uint32_t left_part{
-            uint32_t{block[0]}
-            | (uint32_t{block[1]} << 8)
-            | (uint32_t{block[2]} << 16)
-            | (uint32_t{block[3]} << 24)
-    };
+        std::vector<uint32_t> s{
+                (buffer & 0xF0000000) >> 28,
+                (buffer & 0x0F000000) >> 24,
+                (buffer & 0x00F00000) >> 20,
+                (buffer & 0x000F0000) >> 16,
+                (buffer & 0x0000F000) >> 12,
+                (buffer & 0x00000F00) >> 8,
+                (buffer & 0x000000F0) >> 4,
+                (buffer & 0x0000000F)
+        };
 
-    uint32_t right_part{
-            uint32_t{block[4]}
-            | (uint32_t{block[5]} << 8)
-            | (uint32_t{block[6]} << 16)
-            | (uint32_t{block[7]} << 24)
-    };
-
-    for (uint8_t counter{0}; counter < 32; ++counter)
-    {
-        left_part = right_part;
-        //right_part = left_part ^ transform_function(right_part, sub_keys.at(subkey_sequence.at(counter)));
-        right_part = left_part ^ transform_function(right_part, sub_keys.at(subkey_sequence.at(counter ^ mode))); // when decrypt ??
-    }
-
-    std::vector<uint8_t> new_block {
-        uint8_t(right_part & 0xFF),
-        uint8_t(right_part >> 8 & 0xFF),
-        uint8_t(right_part >> 16 & 0xFF),
-        uint8_t(right_part >> 24 & 0xFF),
-        uint8_t(left_part & 0xFF),
-        uint8_t(left_part >> 8 & 0xFF),
-        uint8_t(left_part >> 16 & 0xFF),
-        uint8_t(left_part >> 24 & 0xFF)
-    };
-
-    return new_block;
-}
-
-std::vector<uint8_t> encrypt_by_gost28147_89(const std::vector<uint8_t> &open_text, const std::vector<uint8_t> &key, const uint8_t mode)
-{
-    std::vector<std::vector<uint8_t>> blocks{split_vector_on_blocks(open_text, 8)};
-    std::vector<uint32_t> sub_keys{get_uint32_subkeys(key)};
-
-    std::vector<uint8_t> response {};
-
-    for (const auto &block : blocks)
-    {
-        std::vector<uint8_t> transformed_block{encrypt_block(block, sub_keys, mode)};
-
-        for (const auto &value : transformed_block)
+        buffer = 0x00000000;
+        for (int b = 0; b < 8; b++)
         {
-            response.push_back(value);
+            buffer <<= 4;
+            buffer += uint32_t(s_box[b][s[b] & 0x0000000f]);
         }
+
+        /*buffer = ((buffer << 11) | (buffer >> 21));
+        byte[] resBytes = ByteBuffer.allocate(4).putInt(buf).array();
+        byte[] newB = {0x00, 0x00, 0x00, 0x00};
+        B = slice_vector(A, 0, 4);
+        System.arraycopy(A, 0, newB, 0, 4);
+        for (int b = 0; b < 4; b++) {
+            A[b] = (byte) (resBytes[b] ^ B[b]);
+        }
+
+        A[0] = uint8_t()
+        System.arraycopy(newB, 0, B, 0, 4);*/
     }
 
-    return open_text;
+    /*byte[] result = new byte[8];
+    System.arraycopy(B, 0, result, 0, 4);
+    System.arraycopy(A, 0, result, 4, 4);
+
+    return result;
 }

@@ -83,6 +83,12 @@
 		<Unit filename="D:/Other/HomeWork/Methods Of Information Protection/LR1-CPP/main.cpp">
 			<Option target="LR1_CPP"/>
 		</Unit>
+		<Unit filename="D:/Other/HomeWork/Methods Of Information Protection/LR1-CPP/utils.cpp">
+			<Option target="LR1_CPP"/>
+		</Unit>
+		<Unit filename="D:/Other/HomeWork/Methods Of Information Protection/LR1-CPP/utils.hpp">
+			<Option target="LR1_CPP"/>
+		</Unit>
 		<Unit filename="D:/Other/HomeWork/Methods Of Information Protection/LR1-CPP/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

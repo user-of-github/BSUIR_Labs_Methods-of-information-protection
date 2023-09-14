@@ -1,22 +1,23 @@
+#pragma once
+
+
 #include <vector>
 #include <iostream>
-#include <cstdint>
-
+#include "./utils.hpp"
 
 template<typename ValueType>
 std::vector<ValueType> slice_vector(const std::vector<ValueType> &source, const std::size_t from, const std::size_t len)
 {
-    std::vector<ValueType> response {};
     if (from + len > source.size())
     {
-        std::copy(std::begin(source) + from, std::end(source), std::begin(response));
+        std::vector<ValueType> response(std::begin(source) + from, std::end(source));
+        return response;
     }
     else
     {
-        std::copy(std::begin(source) + from, std::begin(source) + from + len, std::begin(response));
+        std::vector<ValueType> response(std::begin(source) + from, std::begin(source) + from + len);
+        return response;
     }
-
-    return response;
 }
 
 template<typename ValueType>
@@ -37,7 +38,7 @@ void print_vector(const std::vector<ValueType> &source)
 {
     for (const auto &value : source)
     {
-        std::cout << value << ' ';
+        std::cout << (int)value << ' ';
     }
     std::cout << '\n';
 }
