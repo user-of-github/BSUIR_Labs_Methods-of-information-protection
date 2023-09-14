@@ -3,8 +3,6 @@
 
 CMakeFiles/LR1_CPP.dir/main.cpp.obj: ../main.cpp
 CMakeFiles/LR1_CPP.dir/main.cpp.obj: ../utils.cpp
-CMakeFiles/LR1_CPP.dir/main.cpp.obj: ../utils.hpp
 
 CMakeFiles/LR1_CPP.dir/utils.cpp.obj: ../utils.cpp
-CMakeFiles/LR1_CPP.dir/utils.cpp.obj: ../utils.hpp
 
