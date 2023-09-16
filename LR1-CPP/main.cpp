@@ -5,7 +5,7 @@
 
 
 const uint32_t s_box[8][16]{
-        {0x9,   0x6, 0x3, 0x2, 0x8, 0xB, 0x1, 0x7, 0xA, 0x4, 0xE, 0xF, 0xC, 0x0, 0xD, 0x5},
+        {0x9, 0x6, 0x3, 0x2, 0x8, 0xB, 0x1, 0x7, 0xA, 0x4, 0xE, 0xF, 0xC, 0x0, 0xD, 0x5},
         {0x3, 0x7, 0xE, 0x9, 0x8, 0xA, 0xF, 0x0, 0x5, 0x2, 0x6, 0xC, 0xB, 0x4, 0xD, 0x1},
         {0xE, 0x4, 0x6, 0x2, 0xB, 0x3, 0xD, 0x8, 0xC, 0xF, 0x5, 0xA, 0x0, 0x7, 0x1, 0x9},
         {0xE, 0x7, 0xA, 0xC, 0xD, 0x1, 0x3, 0x9, 0x0, 0x2, 0xB, 0x4, 0xF, 0x8, 0x5, 0x6},
@@ -30,21 +30,17 @@ const uint8_t ACT_DECRYPT = 0x1F;
 // F
 const uint32_t transform_function(const uint32_t a, const uint32_t b)
 {
-    const uint64_t a_transformed{a};
-    const uint64_t b_transformed{a};
-
-    const uint64_t sum{a_transformed + b_transformed};
-    const uint32_t sum_with_module{(uint32_t) (sum & 0x0000FFFF)}; // sum % (2 ** 32)
+    const uint32_t sum{a + b};
 
     const uint32_t transformed{
-            s_box[0][sum_with_module & 0xF] |
-            s_box[1][(sum_with_module >> 4) & 0xF] << 4 |
-            s_box[2][(sum_with_module >> 8) & 0xF] << 8 |
-            s_box[3][(sum_with_module >> 12) & 0xF] << 12 |
-            s_box[4][(sum_with_module >> 16) & 0xF] << 16 |
-            s_box[5][(sum_with_module >> 20) & 0xF] << 20 |
-            s_box[6][(sum_with_module >> 24) & 0xF] << 24 |
-            s_box[7][(sum_with_module >> 28) & 0xF] << 28
+            s_box[0][sum & 0xF] |
+            s_box[1][(sum >> 4) & 0xF] << 4 |
+            s_box[2][(sum >> 8) & 0xF] << 8 |
+            s_box[3][(sum >> 12) & 0xF] << 12 |
+            s_box[4][(sum >> 16) & 0xF] << 16 |
+            s_box[5][(sum >> 20) & 0xF] << 20 |
+            s_box[6][(sum >> 24) & 0xF] << 24 |
+            s_box[7][sum >> 28] << 28
     };
 
     return (transformed << 11) | (transformed >> (32 - 11));
@@ -58,10 +54,10 @@ const std::vector<uint32_t> get_uint32_subkeys(const std::vector<uint8_t> &sourc
     for (const auto &group : key_groups)
     {
         const uint32_t value{
-                (uint32_t{group.at(0)} << 24)
-                | (uint32_t{group.at(1)} << 16)
-                | (uint32_t{group.at(2)} << 8)
-                | (uint32_t{group.at(3)})
+                (uint32_t{group.at(0)})
+                | (uint32_t{group.at(1)} << 8)
+                | (uint32_t{group.at(2)} << 16)
+                | (uint32_t{group.at(3)} << 24)
         };
         response.push_back(value);
     }
@@ -74,17 +70,17 @@ std::vector<uint8_t>
 encrypt_block(const std::vector<uint8_t> &block, const std::vector<uint32_t> &sub_keys, const uint8_t mode)
 {
     uint32_t left_part{
-            (uint32_t{block.at(0)} << 24)
-            | (uint32_t{block.at(1)} << 16)
-            | (uint32_t{block.at(2)} << 8)
-            | (uint32_t{block.at(3)})
+            (uint32_t{block.at(0)})
+            | (uint32_t{block.at(1)} << 8)
+            | (uint32_t{block.at(2)} << 16)
+            | (uint32_t{block.at(3)} << 24)
     };
 
     uint32_t right_part{
-            (uint32_t{block.at(4)} << 24)
-            | (uint32_t{block.at(5)} << 16)
-            | (uint32_t{block.at(6)} << 8)
-            | (uint32_t{block.at(7)})
+            (uint32_t{block.at(4)})
+            | (uint32_t{block.at(5)} << 8)
+            | (uint32_t{block.at(6)} << 16)
+            | (uint32_t{block.at(7)} << 24)
     };
 
     for (uint8_t counter{0}; counter < 32; ++counter)
@@ -97,15 +93,15 @@ encrypt_block(const std::vector<uint8_t> &block, const std::vector<uint32_t> &su
     }
 
     std::vector<uint8_t> new_block{
-            uint8_t((right_part >> 24) & 0xFF),
-            uint8_t((right_part >> 16) & 0xFF),
-            uint8_t((right_part >> 8) & 0xFF),
             uint8_t((right_part) & 0xFF),
+            uint8_t((right_part >> 8) & 0xFF),
+            uint8_t((right_part >> 16) & 0xFF),
+            uint8_t((right_part >> 24) & 0xFF),
 
-            uint8_t((left_part >> 24) & 0xFF),
-            uint8_t((left_part >> 16) & 0xFF),
+            uint8_t((left_part) & 0xFF),
             uint8_t((left_part >> 8) & 0xFF),
-            uint8_t((left_part) & 0xFF)
+            uint8_t((left_part >> 16) & 0xFF),
+            uint8_t((left_part >> 24) & 0xFF)
     };
 
     return new_block;
@@ -138,7 +134,7 @@ encrypt_by_gost28147_89(const std::vector<uint8_t> &open_text, const std::vector
 int main()
 {
     // let it (open_text) be with length multiple of 8 (length % 8 = 0)
-    const std::vector<uint8_t> open_text{255, 1, 254, 22, 11, 3, 23, 6, 1, 2, 3, 4, 5, 6, 7, 8};
+    const std::vector<uint8_t> open_text{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24};
     const std::vector<uint8_t> key{
             10, 11, 120, 13, 14, 15, 160, 10, 20, 30, 40, 50, 60, 72, 8, 91,
             17, 18, 190, 20, 21, 220, 23, 24, 250, 26, 27, 28, 29, 30, 31, 32
