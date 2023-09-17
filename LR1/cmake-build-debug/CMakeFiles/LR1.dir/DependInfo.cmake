@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "D:/Other/HomeWork/Methods Of Information Protection/LR1/gost28147_89.cpp" "D:/Other/HomeWork/Methods Of Information Protection/LR1/cmake-build-debug/CMakeFiles/LR1.dir/gost28147_89.cpp.obj"
+  "D:/Other/HomeWork/Methods Of Information Protection/LR1/gost28147_89/gost28147_89.cpp" "D:/Other/HomeWork/Methods Of Information Protection/LR1/cmake-build-debug/CMakeFiles/LR1.dir/gost28147_89/gost28147_89.cpp.obj"
   "D:/Other/HomeWork/Methods Of Information Protection/LR1/main.cpp" "D:/Other/HomeWork/Methods Of Information Protection/LR1/cmake-build-debug/CMakeFiles/LR1.dir/main.cpp.obj"
-  "D:/Other/HomeWork/Methods Of Information Protection/LR1/utils.cpp" "D:/Other/HomeWork/Methods Of Information Protection/LR1/cmake-build-debug/CMakeFiles/LR1.dir/utils.cpp.obj"
+  "D:/Other/HomeWork/Methods Of Information Protection/LR1/utils/utils.cpp" "D:/Other/HomeWork/Methods Of Information Protection/LR1/cmake-build-debug/CMakeFiles/LR1.dir/utils/utils.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

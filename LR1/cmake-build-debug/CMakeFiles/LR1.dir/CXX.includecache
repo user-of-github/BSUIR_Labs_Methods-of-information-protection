@@ -6,13 +6,13 @@
 
 #IncludeRegexTransform: 
 
-D:/Other/HomeWork/Methods Of Information Protection/LR1/gost28147_89.hpp
+D:/Other/HomeWork/Methods Of Information Protection/LR1/gost28147_89/gost28147_89.hpp
 cstdint
 -
 vector
 -
-./utils.cpp
-D:/Other/HomeWork/Methods Of Information Protection/LR1/utils.cpp
+../utils/utils.hpp
+D:/Other/HomeWork/Methods Of Information Protection/LR1/utils/utils.hpp
 
 D:/Other/HomeWork/Methods Of Information Protection/LR1/main.cpp
 iostream
@@ -21,14 +21,20 @@ vector
 -
 cstdint
 -
-fstream
--
-./gost28147_89.hpp
-D:/Other/HomeWork/Methods Of Information Protection/LR1/gost28147_89.hpp
+./secret_parameters.hpp
+D:/Other/HomeWork/Methods Of Information Protection/LR1/secret_parameters.hpp
+./gost28147_89/gost28147_89.hpp
+D:/Other/HomeWork/Methods Of Information Protection/LR1/gost28147_89/gost28147_89.hpp
 
-D:/Other/HomeWork/Methods Of Information Protection/LR1/utils.cpp
+D:/Other/HomeWork/Methods Of Information Protection/LR1/secret_parameters.hpp
+
+D:/Other/HomeWork/Methods Of Information Protection/LR1/utils/utils.hpp
 vector
 -
+cstdint
+-
 iostream
+-
+fstream
 -
 

@@ -141,32 +141,32 @@ LR1/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\LR1.dir\build.make CMakeFiles/LR1.dir/build
 .PHONY : LR1/fast
 
-gost28147_89.obj: gost28147_89.cpp.obj
+gost28147_89/gost28147_89.obj: gost28147_89/gost28147_89.cpp.obj
 
-.PHONY : gost28147_89.obj
+.PHONY : gost28147_89/gost28147_89.obj
 
 # target to build an object file
-gost28147_89.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LR1.dir\build.make CMakeFiles/LR1.dir/gost28147_89.cpp.obj
-.PHONY : gost28147_89.cpp.obj
+gost28147_89/gost28147_89.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LR1.dir\build.make CMakeFiles/LR1.dir/gost28147_89/gost28147_89.cpp.obj
+.PHONY : gost28147_89/gost28147_89.cpp.obj
 
-gost28147_89.i: gost28147_89.cpp.i
+gost28147_89/gost28147_89.i: gost28147_89/gost28147_89.cpp.i
 
-.PHONY : gost28147_89.i
+.PHONY : gost28147_89/gost28147_89.i
 
 # target to preprocess a source file
-gost28147_89.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LR1.dir\build.make CMakeFiles/LR1.dir/gost28147_89.cpp.i
-.PHONY : gost28147_89.cpp.i
+gost28147_89/gost28147_89.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LR1.dir\build.make CMakeFiles/LR1.dir/gost28147_89/gost28147_89.cpp.i
+.PHONY : gost28147_89/gost28147_89.cpp.i
 
-gost28147_89.s: gost28147_89.cpp.s
+gost28147_89/gost28147_89.s: gost28147_89/gost28147_89.cpp.s
 
-.PHONY : gost28147_89.s
+.PHONY : gost28147_89/gost28147_89.s
 
 # target to generate assembly for a file
-gost28147_89.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LR1.dir\build.make CMakeFiles/LR1.dir/gost28147_89.cpp.s
-.PHONY : gost28147_89.cpp.s
+gost28147_89/gost28147_89.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LR1.dir\build.make CMakeFiles/LR1.dir/gost28147_89/gost28147_89.cpp.s
+.PHONY : gost28147_89/gost28147_89.cpp.s
 
 main.obj: main.cpp.obj
 
@@ -195,32 +195,32 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\LR1.dir\build.make CMakeFiles/LR1.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-utils.obj: utils.cpp.obj
+utils/utils.obj: utils/utils.cpp.obj
 
-.PHONY : utils.obj
+.PHONY : utils/utils.obj
 
 # target to build an object file
-utils.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LR1.dir\build.make CMakeFiles/LR1.dir/utils.cpp.obj
-.PHONY : utils.cpp.obj
+utils/utils.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LR1.dir\build.make CMakeFiles/LR1.dir/utils/utils.cpp.obj
+.PHONY : utils/utils.cpp.obj
 
-utils.i: utils.cpp.i
+utils/utils.i: utils/utils.cpp.i
 
-.PHONY : utils.i
+.PHONY : utils/utils.i
 
 # target to preprocess a source file
-utils.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LR1.dir\build.make CMakeFiles/LR1.dir/utils.cpp.i
-.PHONY : utils.cpp.i
+utils/utils.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LR1.dir\build.make CMakeFiles/LR1.dir/utils/utils.cpp.i
+.PHONY : utils/utils.cpp.i
 
-utils.s: utils.cpp.s
+utils/utils.s: utils/utils.cpp.s
 
-.PHONY : utils.s
+.PHONY : utils/utils.s
 
 # target to generate assembly for a file
-utils.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LR1.dir\build.make CMakeFiles/LR1.dir/utils.cpp.s
-.PHONY : utils.cpp.s
+utils/utils.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LR1.dir\build.make CMakeFiles/LR1.dir/utils/utils.cpp.s
+.PHONY : utils/utils.cpp.s
 
 # Help Target
 help:
@@ -231,15 +231,15 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... LR1
-	@echo ... gost28147_89.obj
-	@echo ... gost28147_89.i
-	@echo ... gost28147_89.s
+	@echo ... gost28147_89/gost28147_89.obj
+	@echo ... gost28147_89/gost28147_89.i
+	@echo ... gost28147_89/gost28147_89.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
-	@echo ... utils.obj
-	@echo ... utils.i
-	@echo ... utils.s
+	@echo ... utils/utils.obj
+	@echo ... utils/utils.i
+	@echo ... utils/utils.s
 .PHONY : help
 
 

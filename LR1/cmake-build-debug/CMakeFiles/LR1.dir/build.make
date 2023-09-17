@@ -88,44 +88,44 @@ CMakeFiles/LR1.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LR1.dir/main.cpp.s"
 	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Other\HomeWork\Methods Of Information Protection\LR1\main.cpp" -o CMakeFiles\LR1.dir\main.cpp.s
 
-CMakeFiles/LR1.dir/utils.cpp.obj: CMakeFiles/LR1.dir/flags.make
-CMakeFiles/LR1.dir/utils.cpp.obj: ../utils.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\Other\HomeWork\Methods Of Information Protection\LR1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/LR1.dir/utils.cpp.obj"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\LR1.dir\utils.cpp.obj -c "D:\Other\HomeWork\Methods Of Information Protection\LR1\utils.cpp"
+CMakeFiles/LR1.dir/utils/utils.cpp.obj: CMakeFiles/LR1.dir/flags.make
+CMakeFiles/LR1.dir/utils/utils.cpp.obj: ../utils/utils.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\Other\HomeWork\Methods Of Information Protection\LR1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/LR1.dir/utils/utils.cpp.obj"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\LR1.dir\utils\utils.cpp.obj -c "D:\Other\HomeWork\Methods Of Information Protection\LR1\utils\utils.cpp"
 
-CMakeFiles/LR1.dir/utils.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LR1.dir/utils.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\Other\HomeWork\Methods Of Information Protection\LR1\utils.cpp" > CMakeFiles\LR1.dir\utils.cpp.i
+CMakeFiles/LR1.dir/utils/utils.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LR1.dir/utils/utils.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\Other\HomeWork\Methods Of Information Protection\LR1\utils\utils.cpp" > CMakeFiles\LR1.dir\utils\utils.cpp.i
 
-CMakeFiles/LR1.dir/utils.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LR1.dir/utils.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Other\HomeWork\Methods Of Information Protection\LR1\utils.cpp" -o CMakeFiles\LR1.dir\utils.cpp.s
+CMakeFiles/LR1.dir/utils/utils.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LR1.dir/utils/utils.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Other\HomeWork\Methods Of Information Protection\LR1\utils\utils.cpp" -o CMakeFiles\LR1.dir\utils\utils.cpp.s
 
-CMakeFiles/LR1.dir/gost28147_89.cpp.obj: CMakeFiles/LR1.dir/flags.make
-CMakeFiles/LR1.dir/gost28147_89.cpp.obj: ../gost28147_89.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\Other\HomeWork\Methods Of Information Protection\LR1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/LR1.dir/gost28147_89.cpp.obj"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\LR1.dir\gost28147_89.cpp.obj -c "D:\Other\HomeWork\Methods Of Information Protection\LR1\gost28147_89.cpp"
+CMakeFiles/LR1.dir/gost28147_89/gost28147_89.cpp.obj: CMakeFiles/LR1.dir/flags.make
+CMakeFiles/LR1.dir/gost28147_89/gost28147_89.cpp.obj: ../gost28147_89/gost28147_89.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\Other\HomeWork\Methods Of Information Protection\LR1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/LR1.dir/gost28147_89/gost28147_89.cpp.obj"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\LR1.dir\gost28147_89\gost28147_89.cpp.obj -c "D:\Other\HomeWork\Methods Of Information Protection\LR1\gost28147_89\gost28147_89.cpp"
 
-CMakeFiles/LR1.dir/gost28147_89.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LR1.dir/gost28147_89.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\Other\HomeWork\Methods Of Information Protection\LR1\gost28147_89.cpp" > CMakeFiles\LR1.dir\gost28147_89.cpp.i
+CMakeFiles/LR1.dir/gost28147_89/gost28147_89.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LR1.dir/gost28147_89/gost28147_89.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\Other\HomeWork\Methods Of Information Protection\LR1\gost28147_89\gost28147_89.cpp" > CMakeFiles\LR1.dir\gost28147_89\gost28147_89.cpp.i
 
-CMakeFiles/LR1.dir/gost28147_89.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LR1.dir/gost28147_89.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Other\HomeWork\Methods Of Information Protection\LR1\gost28147_89.cpp" -o CMakeFiles\LR1.dir\gost28147_89.cpp.s
+CMakeFiles/LR1.dir/gost28147_89/gost28147_89.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LR1.dir/gost28147_89/gost28147_89.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Other\HomeWork\Methods Of Information Protection\LR1\gost28147_89\gost28147_89.cpp" -o CMakeFiles\LR1.dir\gost28147_89\gost28147_89.cpp.s
 
 # Object files for target LR1
 LR1_OBJECTS = \
 "CMakeFiles/LR1.dir/main.cpp.obj" \
-"CMakeFiles/LR1.dir/utils.cpp.obj" \
-"CMakeFiles/LR1.dir/gost28147_89.cpp.obj"
+"CMakeFiles/LR1.dir/utils/utils.cpp.obj" \
+"CMakeFiles/LR1.dir/gost28147_89/gost28147_89.cpp.obj"
 
 # External object files for target LR1
 LR1_EXTERNAL_OBJECTS =
 
 LR1.exe: CMakeFiles/LR1.dir/main.cpp.obj
-LR1.exe: CMakeFiles/LR1.dir/utils.cpp.obj
-LR1.exe: CMakeFiles/LR1.dir/gost28147_89.cpp.obj
+LR1.exe: CMakeFiles/LR1.dir/utils/utils.cpp.obj
+LR1.exe: CMakeFiles/LR1.dir/gost28147_89/gost28147_89.cpp.obj
 LR1.exe: CMakeFiles/LR1.dir/build.make
 LR1.exe: CMakeFiles/LR1.dir/linklibs.rsp
 LR1.exe: CMakeFiles/LR1.dir/objects1.rsp

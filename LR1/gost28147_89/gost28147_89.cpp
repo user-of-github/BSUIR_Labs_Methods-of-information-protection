@@ -27,12 +27,7 @@ std::vector<uint32_t> get_uint32_subkeys(const std::vector<uint8_t> &source_key)
 
     for (const auto &group : key_groups)
     {
-        const uint32_t value{
-                (uint32_t{group.at(0)})
-                | (uint32_t{group.at(1)} << 8)
-                | (uint32_t{group.at(2)} << 16)
-                | (uint32_t{group.at(3)} << 24)
-        };
+        const uint32_t value{(uint32_t{group.at(0)}) | (uint32_t{group.at(1)} << 8) | (uint32_t{group.at(2)} << 16) | (uint32_t{group.at(3)} << 24)};
         response.push_back(value);
     }
 
@@ -44,20 +39,8 @@ std::vector<uint8_t> crypt_block(const std::vector<uint8_t> &block, const std::v
 {
     const static uint8_t kIterationsCount{32};
 
-
-    uint32_t left_part{
-            (uint32_t{block.at(0)})
-            | (uint32_t{block.at(1)} << 8)
-            | (uint32_t{block.at(2)} << 16)
-            | (uint32_t{block.at(3)} << 24)
-    };
-
-    uint32_t right_part{
-            (uint32_t{block.at(4)})
-            | (uint32_t{block.at(5)} << 8)
-            | (uint32_t{block.at(6)} << 16)
-            | (uint32_t{block.at(7)} << 24)
-    };
+    uint32_t left_part{(uint32_t{block.at(0)}) | (uint32_t{block.at(1)} << 8) | (uint32_t{block.at(2)} << 16) | (uint32_t{block.at(3)} << 24)};
+    uint32_t right_part{(uint32_t{block.at(4)}) | (uint32_t{block.at(5)} << 8) | (uint32_t{block.at(6)} << 16) | (uint32_t{block.at(7)} << 24)};
 
     for (uint8_t counter{0}; counter < kIterationsCount; ++counter)
     {
@@ -85,6 +68,9 @@ std::vector<uint8_t> crypt_block(const std::vector<uint8_t> &block, const std::v
 // mode of simple exchange // режим простой замены
 std::vector<uint8_t> crypt_by_gost28147_89(const std::vector<uint8_t> &open_text, const std::vector<uint8_t> &key, const uint8_t mode)
 {
+    validate_key(key); // throws if key.length % 32 !== 0
+    validate_open_text(open_text); // throws if open_text.length % 8 !== 0
+
     std::vector<std::vector<uint8_t>> blocks{split_vector_on_blocks(open_text, 8)};
     std::vector<uint32_t> sub_keys{get_uint32_subkeys(key)};
 
@@ -104,19 +90,27 @@ std::vector<uint8_t> crypt_by_gost28147_89(const std::vector<uint8_t> &open_text
 }
 
 
-std::vector<uint8_t> encrypt_by_gost28147_89_with_gamma(const std::vector<uint8_t> &open_text, const std::vector<uint8_t> &key, const std::vector<uint8_t> &initial_gamma)
+std::vector<uint8_t> encrypt_by_gost28147_89_with_gamma(
+        const std::vector<uint8_t> &open_text,
+        const std::vector<uint8_t> &key,
+        const std::vector<uint8_t> &initial_gamma
+)
 {
+    validate_key(key); // throws if key.length % 32 !== 0
+    validate_open_text(open_text); // throws if open_text.length % 8 !== 0
+    validate_initial_gamma(initial_gamma); // throws if gamma length is not 8
+
     std::vector<std::vector<uint8_t>> blocks{split_vector_on_blocks(open_text, 8)};
 
     std::vector<uint32_t> sub_keys{get_uint32_subkeys(key)};
 
-    std::vector<uint8_t> response{};
+    std::vector<uint8_t> response{}; // result
     std::vector<uint8_t> gamma(std::cbegin(initial_gamma), std::cend(initial_gamma));
 
     for (const auto &block : blocks)
     {
         std::vector<uint8_t> crypted_gamma{crypt_block(gamma, sub_keys, ACT_ENCRYPT)}; // encrypt or decrypt gamma
-        std::vector<uint8_t> crypted_gamma_xored_with_block { apply_gamma(block, crypted_gamma) }; // xor it with block
+        std::vector<uint8_t> crypted_gamma_xored_with_block{apply_gamma(block, crypted_gamma)}; // xor it with block
         gamma = slice_vector(crypted_gamma_xored_with_block, 0, crypted_gamma_xored_with_block.size()); // override gamma
 
         for (const auto &value : crypted_gamma_xored_with_block)
@@ -128,18 +122,26 @@ std::vector<uint8_t> encrypt_by_gost28147_89_with_gamma(const std::vector<uint8_
     return response;
 }
 
-std::vector<uint8_t> decrypt_by_gost28147_89_with_gamma(const std::vector<uint8_t> &close_text, const std::vector<uint8_t> &key, const std::vector<uint8_t> &initial_gamma)
+std::vector<uint8_t> decrypt_by_gost28147_89_with_gamma(
+        const std::vector<uint8_t> &close_text,
+        const std::vector<uint8_t> &key,
+        const std::vector<uint8_t> &initial_gamma
+)
 {
+    validate_key(key); // throws if key.length % 32 !== 0
+    validate_open_text(close_text); // throws if open_text.length % 8 !== 0
+    validate_initial_gamma(initial_gamma); // throws if gamma length is not 8
+
     std::vector<std::vector<uint8_t>> blocks{split_vector_on_blocks(close_text, 8)};
     std::vector<uint32_t> sub_keys{get_uint32_subkeys(key)};
 
-    std::vector<uint8_t> response{};
+    std::vector<uint8_t> response{}; // result
     std::vector<uint8_t> gamma(std::cbegin(initial_gamma), std::cend(initial_gamma));
 
     for (const auto &block : blocks)
     {
         std::vector<uint8_t> crypted_gamma{crypt_block(gamma, sub_keys, ACT_ENCRYPT)}; // encrypt gamma
-        std::vector<uint8_t> crypted_gamma_xored_with_block { apply_gamma(block, crypted_gamma) }; // xor it with block
+        std::vector<uint8_t> crypted_gamma_xored_with_block{apply_gamma(block, crypted_gamma)}; // xor it with block
         gamma = slice_vector(block, 0, block.size()); // override gamma
 
         for (const auto &value : crypted_gamma_xored_with_block)

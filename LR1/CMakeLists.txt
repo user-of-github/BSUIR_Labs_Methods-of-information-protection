@@ -3,4 +3,4 @@ project(LR1)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(LR1 main.cpp utils.cpp gost28147_89.cpp gost28147_89.hpp)
+add_executable(LR1 main.cpp ./utils/utils.cpp ./gost28147_89/gost28147_89.cpp ./secret_parameters.hpp)

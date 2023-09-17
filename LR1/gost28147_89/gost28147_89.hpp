@@ -3,7 +3,7 @@
 
 #include <cstdint>
 #include <vector>
-#include "./utils.cpp"
+#include "../utils/utils.hpp"
 
 
 const uint32_t s_box[8][16]{
