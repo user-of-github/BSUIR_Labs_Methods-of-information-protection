@@ -14,8 +14,8 @@ int main()
 
     try
     {
-        //const std::vector<uint8_t> crypted_text_bytes{encrypt_by_gost28147_89_with_gamma(text_bytes, key, initial_gamma)};
-        const std::vector<uint8_t> crypted_text_bytes {decrypt_by_gost28147_89_with_gamma(text_bytes, key, initial_gamma)};
+        const std::vector<uint8_t> crypted_text_bytes{encrypt_by_gost28147_89_with_gamma(text_bytes, key, initial_gamma)};
+        //const std::vector<uint8_t> crypted_text_bytes {decrypt_by_gost28147_89_with_gamma(text_bytes, key, initial_gamma)};
         const std::string crypted_text{transform_bytes_array_to_text(crypted_text_bytes)};
         std::cout << "INITIAL TEXT: \n" << text << '\n' << '\n';
         std::cout << "Crypted text: " << '\n' << crypted_text << '\n';
