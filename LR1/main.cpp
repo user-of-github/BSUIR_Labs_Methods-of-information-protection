@@ -7,6 +7,8 @@
 
 std::string read_line_from_file(const std::string &file_name);
 
+std::string make_necessary_length(const std::string &source);
+
 std::vector<uint8_t> transform_text_to_bytes_array(const std::string &source);
 
 std::string transform_bytes_array_to_text(const std::vector<uint8_t> &bytes);
@@ -15,33 +17,28 @@ std::string transform_bytes_array_to_text(const std::vector<uint8_t> &bytes);
 int main()
 {
     const std::string kFileName{"open-text.txt"};
-    const std::string open_text_source{read_line_from_file(kFileName)};
-    const std::vector<uint8_t> open_text{transform_text_to_bytes_array(open_text_source)};
+    const std::string text{read_line_from_file(kFileName)};
 
-    // let it (open_text) be with length multiple of 8 (length % 8 = 0)
-    //const std::vector<uint8_t> open_text{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24};
-    const std::vector<uint8_t> key{
-            10, 11, 120, 13, 14, 15, 160, 10, 20, 30, 40, 50, 60, 72, 8, 91,
-            17, 18, 190, 20, 21, 220, 23, 24, 250, 26, 27, 28, 29, 30, 31, 32
-    };
+    const std::string text_with_necessary_length{make_necessary_length(text)};
+    const std::vector<uint8_t> text_bytes {transform_text_to_bytes_array(text_with_necessary_length)};
 
-    validate_key(key); // throws if initial data is incorrect
-    validate_open_text(open_text);
+    const std::vector<uint8_t> key{10, 11, 120, 13, 14, 15, 160, 10, 20, 30, 40, 50, 60, 72, 8, 91, 17, 18, 190, 20, 21, 220, 23, 24, 250, 26, 27, 28, 29, 30, 31, 32};
+    const std::vector<uint8_t> initial_gamma{0x12, 0x34, 0x56, 0x78, 0x90, 0xab, 0xcd, 0xef};
+
+    validate_key(key); // throws if key.length % 32 !== 0
+    validate_open_text(text_bytes); // throws if open_text.length % 8 !== 0
+    validate_initial_gamma(initial_gamma); // throws if gamma length is not 8
 
     try
     {
-        std::cout << "Initial text: " << '\n';
-        print_vector(open_text);
+        const std::vector<uint8_t> encrypted_text_bytes {encrypt_by_gost28147_89_with_gamma(text_bytes, key, initial_gamma)};
+        const std::string encrypted_text {transform_bytes_array_to_text(encrypted_text_bytes)};
+        std::cout << "INITIAL TEXT: \n" << text << '\n' << '\n';
+        std::cout << "Encrypted text: " << '\n' << encrypted_text << '\n';
 
-        const std::vector<uint8_t> encrypted{crypt_by_gost28147_89(open_text, key, ACT_ENCRYPT)};
-        std::cout << '\n' << "Encrypted text: " << '\n';
-        print_vector(encrypted);
-        std::cout << transform_bytes_array_to_text(encrypted) << '\n';
-
-        const std::vector<uint8_t> decrypted{crypt_by_gost28147_89(encrypted, key, ACT_DECRYPT)};
-        const std::string decrypted_text{transform_bytes_array_to_text(decrypted)};
-        std::cout << '\n' << "Decrypted text: " << '\n';
-        std::cout << decrypted_text << '\n';
+        const std::vector<uint8_t> decrypted_text_bytes {decrypt_by_gost28147_89_with_gamma(encrypted_text_bytes, key, initial_gamma)};
+        const std::string decrypted_text {transform_bytes_array_to_text(decrypted_text_bytes)};
+        std::cout << "Decrypted text: " << decrypted_text << '\n';
     }
     catch (const std::exception &error)
     {
@@ -50,6 +47,19 @@ int main()
 
 
     return 0;
+}
+
+std::string make_necessary_length(const std::string &source)
+{
+    static const std::size_t kNecessaryBlockSize {8};
+    std::string response {std::cbegin(source), std::cend(source)};
+
+    while (response.size() % kNecessaryBlockSize != 0)
+    {
+        response = response + ' ';
+    }
+
+    return response;
 }
 
 std::string read_line_from_file(const std::string &file_name)

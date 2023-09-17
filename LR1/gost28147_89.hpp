@@ -38,7 +38,11 @@ std::vector<uint8_t> crypt_block(const std::vector<uint8_t> &block, const std::v
 
 std::vector<uint8_t> crypt_by_gost28147_89(const std::vector<uint8_t> &open_text, const std::vector<uint8_t> &key, const uint8_t mode);
 
-std::vector<uint8_t> applyGamma(const std::vector<uint8_t> &block, const std::vector<uint8_t> &gamma);
+std::vector<uint8_t> encrypt_by_gost28147_89_with_gamma(const std::vector<uint8_t> &open_text, const std::vector<uint8_t> &key, const std::vector<uint8_t> &initial_gamma);
+
+std::vector<uint8_t> decrypt_by_gost28147_89_with_gamma(const std::vector<uint8_t> &open_text, const std::vector<uint8_t> &key, const std::vector<uint8_t> &initial_gamma);
+
+std::vector<uint8_t> apply_gamma(const std::vector<uint8_t> &block, const std::vector<uint8_t> &gamma);
 
 
 #endif //LR1_GOST28147_89_HPP

@@ -64,8 +64,7 @@ std::vector<uint8_t> crypt_block(const std::vector<uint8_t> &block, const std::v
         const uint32_t old_left_part{left_part};
         const uint32_t old_right_part{right_part};
         left_part = old_right_part;
-        right_part = old_left_part ^ transform_function(old_right_part, sub_keys.at(
-                subkey_sequence.at(counter ^ mode))); // when decrypt ??
+        right_part = old_left_part ^ transform_function(old_right_part, sub_keys.at(subkey_sequence.at(counter ^ mode)));
     }
 
     std::vector<uint8_t> new_block{
@@ -83,6 +82,7 @@ std::vector<uint8_t> crypt_block(const std::vector<uint8_t> &block, const std::v
     return new_block;
 }
 
+// mode of simple exchange // режим простой замены
 std::vector<uint8_t> crypt_by_gost28147_89(const std::vector<uint8_t> &open_text, const std::vector<uint8_t> &key, const uint8_t mode)
 {
     std::vector<std::vector<uint8_t>> blocks{split_vector_on_blocks(open_text, 8)};
@@ -103,7 +103,56 @@ std::vector<uint8_t> crypt_by_gost28147_89(const std::vector<uint8_t> &open_text
     return response;
 }
 
-std::vector<uint8_t> applyGamma(const std::vector<uint8_t> &block, const std::vector<uint8_t> &gamma)
+
+std::vector<uint8_t> encrypt_by_gost28147_89_with_gamma(const std::vector<uint8_t> &open_text, const std::vector<uint8_t> &key, const std::vector<uint8_t> &initial_gamma)
+{
+    std::vector<std::vector<uint8_t>> blocks{split_vector_on_blocks(open_text, 8)};
+
+    std::vector<uint32_t> sub_keys{get_uint32_subkeys(key)};
+
+    std::vector<uint8_t> response{};
+    std::vector<uint8_t> gamma(std::cbegin(initial_gamma), std::cend(initial_gamma));
+
+    for (const auto &block : blocks)
+    {
+        std::vector<uint8_t> crypted_gamma{crypt_block(gamma, sub_keys, ACT_ENCRYPT)}; // encrypt or decrypt gamma
+        std::vector<uint8_t> crypted_gamma_xored_with_block { apply_gamma(block, crypted_gamma) }; // xor it with block
+        gamma = slice_vector(crypted_gamma_xored_with_block, 0, crypted_gamma_xored_with_block.size()); // override gamma
+
+        for (const auto &value : crypted_gamma_xored_with_block)
+        {
+            response.push_back(value);
+        }
+    }
+
+    return response;
+}
+
+std::vector<uint8_t> decrypt_by_gost28147_89_with_gamma(const std::vector<uint8_t> &close_text, const std::vector<uint8_t> &key, const std::vector<uint8_t> &initial_gamma)
+{
+    std::vector<std::vector<uint8_t>> blocks{split_vector_on_blocks(close_text, 8)};
+    std::vector<uint32_t> sub_keys{get_uint32_subkeys(key)};
+
+    std::vector<uint8_t> response{};
+    std::vector<uint8_t> gamma(std::cbegin(initial_gamma), std::cend(initial_gamma));
+
+    for (const auto &block : blocks)
+    {
+        std::vector<uint8_t> crypted_gamma{crypt_block(gamma, sub_keys, ACT_ENCRYPT)}; // encrypt gamma
+        std::vector<uint8_t> crypted_gamma_xored_with_block { apply_gamma(block, crypted_gamma) }; // xor it with block
+        gamma = slice_vector(block, 0, block.size()); // override gamma
+
+        for (const auto &value : crypted_gamma_xored_with_block)
+        {
+            response.push_back(value);
+        }
+    }
+
+    return response;
+}
+
+
+std::vector<uint8_t> apply_gamma(const std::vector<uint8_t> &block, const std::vector<uint8_t> &gamma)
 {
     std::vector<uint8_t> gammed_block(block.size());
     for (std::size_t index{0}; index < block.size(); ++index)
