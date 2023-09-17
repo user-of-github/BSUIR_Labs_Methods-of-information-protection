@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/Other/HomeWork/Methods Of Information Protection/LR1/gost28147_89.hpp
+cstdint
+-
+vector
+-
+./utils.cpp
+D:/Other/HomeWork/Methods Of Information Protection/LR1/utils.cpp
+
+D:/Other/HomeWork/Methods Of Information Protection/LR1/main.cpp
+iostream
+-
+vector
+-
+cstdint
+-
+fstream
+-
+./gost28147_89.hpp
+D:/Other/HomeWork/Methods Of Information Protection/LR1/gost28147_89.hpp
+
+D:/Other/HomeWork/Methods Of Information Protection/LR1/utils.cpp
+vector
+-
+iostream
+-
+
