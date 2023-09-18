@@ -19,12 +19,14 @@ iostream
 -
 vector
 -
-cstdint
--
 ./secret_parameters.hpp
 D:/Other/HomeWork/Methods Of Information Protection/LR1/secret_parameters.hpp
 ./gost28147_89/gost28147_89.hpp
 D:/Other/HomeWork/Methods Of Information Protection/LR1/gost28147_89/gost28147_89.hpp
+windows.h
+-
+iomanip
+-
 
 D:/Other/HomeWork/Methods Of Information Protection/LR1/secret_parameters.hpp
 

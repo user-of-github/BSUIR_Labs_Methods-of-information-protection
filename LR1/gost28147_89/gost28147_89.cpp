@@ -96,9 +96,9 @@ std::vector<uint8_t> encrypt_by_gost28147_89_with_gamma(
         const std::vector<uint8_t> &initial_gamma
 )
 {
-    validate_key(key); // throws if key.length % 32 !== 0
-    validate_open_text(open_text); // throws if open_text.length % 8 !== 0
-    validate_initial_gamma(initial_gamma); // throws if gamma length is not 8
+    //validate_key(key); // throws if key.length % 32 !== 0
+    //validate_open_text(open_text); // throws if open_text.length % 8 !== 0
+    //validate_initial_gamma(initial_gamma); // throws if gamma length is not 8
 
     std::vector<std::vector<uint8_t>> blocks{split_vector_on_blocks(open_text, 8)};
 
@@ -128,9 +128,9 @@ std::vector<uint8_t> decrypt_by_gost28147_89_with_gamma(
         const std::vector<uint8_t> &initial_gamma
 )
 {
-    validate_key(key); // throws if key.length % 32 !== 0
-    validate_open_text(close_text); // throws if open_text.length % 8 !== 0
-    validate_initial_gamma(initial_gamma); // throws if gamma length is not 8
+    //validate_key(key); // throws if key.length % 32 !== 0
+    //validate_open_text(close_text); // throws if open_text.length % 8 !== 0
+    //validate_initial_gamma(initial_gamma); // throws if gamma length is not 8
 
     std::vector<std::vector<uint8_t>> blocks{split_vector_on_blocks(close_text, 8)};
     std::vector<uint32_t> sub_keys{get_uint32_subkeys(key)};
