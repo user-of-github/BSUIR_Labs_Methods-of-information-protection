@@ -80,13 +80,13 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="D:/Other/HomeWork/Methods Of Information Protection/LR2/STB_34_101_31_2011/constants.hpp">
+		<Unit filename="D:/Other/HomeWork/Methods Of Information Protection/LR2/STB_34_101_31_2011/core/constants.hpp">
 			<Option target="LR2"/>
 		</Unit>
-		<Unit filename="D:/Other/HomeWork/Methods Of Information Protection/LR2/STB_34_101_31_2011/stb_34_101_31_2011.cpp">
+		<Unit filename="D:/Other/HomeWork/Methods Of Information Protection/LR2/STB_34_101_31_2011/core/core.cpp">
 			<Option target="LR2"/>
 		</Unit>
-		<Unit filename="D:/Other/HomeWork/Methods Of Information Protection/LR2/STB_34_101_31_2011/stb_34_101_31_2011.hpp">
+		<Unit filename="D:/Other/HomeWork/Methods Of Information Protection/LR2/STB_34_101_31_2011/core/core.hpp">
 			<Option target="LR2"/>
 		</Unit>
 		<Unit filename="D:/Other/HomeWork/Methods Of Information Protection/LR2/main.cpp">

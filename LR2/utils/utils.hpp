@@ -13,9 +13,23 @@ void write_to_file(const std::string &file_name, const std::string &data);
 
 
 // output utilities
-void print_vector(const std::vector<uint8_t> &source);
-
-void print_2d_vector(const std::vector<std::vector<uint8_t>> &source);
+template <typename T>
+void print_vector(const std::vector<T> &source)
+{
+    for (const auto &value : source)
+    {
+        std::cout << (int) value << ' ';
+    }
+    std::cout << '\n';
+}
+template <typename T>
+void print_2d_vector(const std::vector<std::vector<T>> &source)
+{
+    for (const auto &value : source)
+    {
+        print_vector(value);
+    }
+}
 
 
 // array/string utils

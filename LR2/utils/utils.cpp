@@ -22,22 +22,6 @@ void write_to_file(const std::string &file_name, const std::string &data)
     write_file.close();
 }
 
-void print_vector(const std::vector<uint8_t> &source)
-{
-    for (const auto &value : source)
-    {
-        std::cout << (int) value << ' ';
-    }
-    std::cout << '\n';
-}
-
-void print_2d_vector(const std::vector<std::vector<uint8_t>> &source)
-{
-    for (const auto &value : source)
-    {
-        print_vector(value);
-    }
-}
 
 
 std::vector<uint8_t> slice_vector(const std::vector<uint8_t> &source, const std::size_t from, const std::size_t len)

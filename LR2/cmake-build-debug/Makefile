@@ -141,32 +141,32 @@ LR2/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\LR2.dir\build.make CMakeFiles/LR2.dir/build
 .PHONY : LR2/fast
 
-STB_34_101_31_2011/stb_34_101_31_2011.obj: STB_34_101_31_2011/stb_34_101_31_2011.cpp.obj
+STB_34_101_31_2011/core/core.obj: STB_34_101_31_2011/core/core.cpp.obj
 
-.PHONY : STB_34_101_31_2011/stb_34_101_31_2011.obj
+.PHONY : STB_34_101_31_2011/core/core.obj
 
 # target to build an object file
-STB_34_101_31_2011/stb_34_101_31_2011.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LR2.dir\build.make CMakeFiles/LR2.dir/STB_34_101_31_2011/stb_34_101_31_2011.cpp.obj
-.PHONY : STB_34_101_31_2011/stb_34_101_31_2011.cpp.obj
+STB_34_101_31_2011/core/core.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LR2.dir\build.make CMakeFiles/LR2.dir/STB_34_101_31_2011/core/core.cpp.obj
+.PHONY : STB_34_101_31_2011/core/core.cpp.obj
 
-STB_34_101_31_2011/stb_34_101_31_2011.i: STB_34_101_31_2011/stb_34_101_31_2011.cpp.i
+STB_34_101_31_2011/core/core.i: STB_34_101_31_2011/core/core.cpp.i
 
-.PHONY : STB_34_101_31_2011/stb_34_101_31_2011.i
+.PHONY : STB_34_101_31_2011/core/core.i
 
 # target to preprocess a source file
-STB_34_101_31_2011/stb_34_101_31_2011.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LR2.dir\build.make CMakeFiles/LR2.dir/STB_34_101_31_2011/stb_34_101_31_2011.cpp.i
-.PHONY : STB_34_101_31_2011/stb_34_101_31_2011.cpp.i
+STB_34_101_31_2011/core/core.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LR2.dir\build.make CMakeFiles/LR2.dir/STB_34_101_31_2011/core/core.cpp.i
+.PHONY : STB_34_101_31_2011/core/core.cpp.i
 
-STB_34_101_31_2011/stb_34_101_31_2011.s: STB_34_101_31_2011/stb_34_101_31_2011.cpp.s
+STB_34_101_31_2011/core/core.s: STB_34_101_31_2011/core/core.cpp.s
 
-.PHONY : STB_34_101_31_2011/stb_34_101_31_2011.s
+.PHONY : STB_34_101_31_2011/core/core.s
 
 # target to generate assembly for a file
-STB_34_101_31_2011/stb_34_101_31_2011.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LR2.dir\build.make CMakeFiles/LR2.dir/STB_34_101_31_2011/stb_34_101_31_2011.cpp.s
-.PHONY : STB_34_101_31_2011/stb_34_101_31_2011.cpp.s
+STB_34_101_31_2011/core/core.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LR2.dir\build.make CMakeFiles/LR2.dir/STB_34_101_31_2011/core/core.cpp.s
+.PHONY : STB_34_101_31_2011/core/core.cpp.s
 
 main.obj: main.cpp.obj
 
@@ -231,9 +231,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... LR2
-	@echo ... STB_34_101_31_2011/stb_34_101_31_2011.obj
-	@echo ... STB_34_101_31_2011/stb_34_101_31_2011.i
-	@echo ... STB_34_101_31_2011/stb_34_101_31_2011.s
+	@echo ... STB_34_101_31_2011/core/core.obj
+	@echo ... STB_34_101_31_2011/core/core.i
+	@echo ... STB_34_101_31_2011/core/core.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

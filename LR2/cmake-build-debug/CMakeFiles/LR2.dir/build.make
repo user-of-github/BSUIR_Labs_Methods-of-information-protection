@@ -88,22 +88,9 @@ CMakeFiles/LR2.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LR2.dir/main.cpp.s"
 	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Other\HomeWork\Methods Of Information Protection\LR2\main.cpp" -o CMakeFiles\LR2.dir\main.cpp.s
 
-CMakeFiles/LR2.dir/STB_34_101_31_2011/stb_34_101_31_2011.cpp.obj: CMakeFiles/LR2.dir/flags.make
-CMakeFiles/LR2.dir/STB_34_101_31_2011/stb_34_101_31_2011.cpp.obj: ../STB_34_101_31_2011/stb_34_101_31_2011.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\Other\HomeWork\Methods Of Information Protection\LR2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/LR2.dir/STB_34_101_31_2011/stb_34_101_31_2011.cpp.obj"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\LR2.dir\STB_34_101_31_2011\stb_34_101_31_2011.cpp.obj -c "D:\Other\HomeWork\Methods Of Information Protection\LR2\STB_34_101_31_2011\stb_34_101_31_2011.cpp"
-
-CMakeFiles/LR2.dir/STB_34_101_31_2011/stb_34_101_31_2011.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LR2.dir/STB_34_101_31_2011/stb_34_101_31_2011.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\Other\HomeWork\Methods Of Information Protection\LR2\STB_34_101_31_2011\stb_34_101_31_2011.cpp" > CMakeFiles\LR2.dir\STB_34_101_31_2011\stb_34_101_31_2011.cpp.i
-
-CMakeFiles/LR2.dir/STB_34_101_31_2011/stb_34_101_31_2011.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LR2.dir/STB_34_101_31_2011/stb_34_101_31_2011.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Other\HomeWork\Methods Of Information Protection\LR2\STB_34_101_31_2011\stb_34_101_31_2011.cpp" -o CMakeFiles\LR2.dir\STB_34_101_31_2011\stb_34_101_31_2011.cpp.s
-
 CMakeFiles/LR2.dir/utils/utils.cpp.obj: CMakeFiles/LR2.dir/flags.make
 CMakeFiles/LR2.dir/utils/utils.cpp.obj: ../utils/utils.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\Other\HomeWork\Methods Of Information Protection\LR2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/LR2.dir/utils/utils.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\Other\HomeWork\Methods Of Information Protection\LR2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/LR2.dir/utils/utils.cpp.obj"
 	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\LR2.dir\utils\utils.cpp.obj -c "D:\Other\HomeWork\Methods Of Information Protection\LR2\utils\utils.cpp"
 
 CMakeFiles/LR2.dir/utils/utils.cpp.i: cmake_force
@@ -114,18 +101,31 @@ CMakeFiles/LR2.dir/utils/utils.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LR2.dir/utils/utils.cpp.s"
 	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Other\HomeWork\Methods Of Information Protection\LR2\utils\utils.cpp" -o CMakeFiles\LR2.dir\utils\utils.cpp.s
 
+CMakeFiles/LR2.dir/STB_34_101_31_2011/core/core.cpp.obj: CMakeFiles/LR2.dir/flags.make
+CMakeFiles/LR2.dir/STB_34_101_31_2011/core/core.cpp.obj: ../STB_34_101_31_2011/core/core.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\Other\HomeWork\Methods Of Information Protection\LR2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/LR2.dir/STB_34_101_31_2011/core/core.cpp.obj"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\LR2.dir\STB_34_101_31_2011\core\core.cpp.obj -c "D:\Other\HomeWork\Methods Of Information Protection\LR2\STB_34_101_31_2011\core\core.cpp"
+
+CMakeFiles/LR2.dir/STB_34_101_31_2011/core/core.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LR2.dir/STB_34_101_31_2011/core/core.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\Other\HomeWork\Methods Of Information Protection\LR2\STB_34_101_31_2011\core\core.cpp" > CMakeFiles\LR2.dir\STB_34_101_31_2011\core\core.cpp.i
+
+CMakeFiles/LR2.dir/STB_34_101_31_2011/core/core.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LR2.dir/STB_34_101_31_2011/core/core.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Other\HomeWork\Methods Of Information Protection\LR2\STB_34_101_31_2011\core\core.cpp" -o CMakeFiles\LR2.dir\STB_34_101_31_2011\core\core.cpp.s
+
 # Object files for target LR2
 LR2_OBJECTS = \
 "CMakeFiles/LR2.dir/main.cpp.obj" \
-"CMakeFiles/LR2.dir/STB_34_101_31_2011/stb_34_101_31_2011.cpp.obj" \
-"CMakeFiles/LR2.dir/utils/utils.cpp.obj"
+"CMakeFiles/LR2.dir/utils/utils.cpp.obj" \
+"CMakeFiles/LR2.dir/STB_34_101_31_2011/core/core.cpp.obj"
 
 # External object files for target LR2
 LR2_EXTERNAL_OBJECTS =
 
 LR2.exe: CMakeFiles/LR2.dir/main.cpp.obj
-LR2.exe: CMakeFiles/LR2.dir/STB_34_101_31_2011/stb_34_101_31_2011.cpp.obj
 LR2.exe: CMakeFiles/LR2.dir/utils/utils.cpp.obj
+LR2.exe: CMakeFiles/LR2.dir/STB_34_101_31_2011/core/core.cpp.obj
 LR2.exe: CMakeFiles/LR2.dir/build.make
 LR2.exe: CMakeFiles/LR2.dir/linklibs.rsp
 LR2.exe: CMakeFiles/LR2.dir/objects1.rsp
