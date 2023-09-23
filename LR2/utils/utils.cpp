@@ -1,18 +1,22 @@
 #include "./utils.hpp"
 
 
-std::string read_line_from_file(const std::string &file_name)
+std::string read_file(const std::string &file_name)
 {
     std::ifstream read_file(file_name);
-    std::string line{};
+    if(read_file.fail()){
+        read_file.close();
+        throw std::invalid_argument("File does not exist");
+    }
+    std::string text{};
     char symbol{};
     while (read_file >> std::noskipws >> symbol)
     {
-        line.append(std::string{symbol});
+        text.append(std::string{symbol});
     }
     read_file.close();
 
-    return line;
+    return text;
 }
 
 void write_to_file(const std::string &file_name, const std::string &data)

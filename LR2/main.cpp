@@ -6,19 +6,15 @@
 
 int main()
 {
-    const std::vector<uint8_t> message {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
-
-
-    std::cout << "Initial \n";
-    print_vector(message);
+    const std::string kFileName {"text.txt"};
+    const std::string text{read_file("text.txt")};
+    const std::vector<uint8_t> text_bytes {transform_text_to_bytes_array(text)};
 
     try {
-        const auto encrypted {encrypt_by_stb_34_101_31_2011_with_reversal_gamma(message, key, gamma)};
-        std::cout << "Encrypted: " << '\n';
-        print_vector(encrypted);
-        const auto decrypted {decrypt_by_stb_34_101_31_2011_with_reversal_gamma(encrypted, key, gamma)};
-        std::cout << "Decrypted: " << '\n';
-        print_vector(decrypted);
+        //const auto crypted_bytes {encrypt_by_stb_34_101_31_2011_with_reversal_gamma(text_bytes, key, gamma)};
+        const auto crypted_bytes {decrypt_by_stb_34_101_31_2011_with_reversal_gamma(text_bytes, key, gamma)};
+        const std::string crypted_text {transform_bytes_array_to_text(crypted_bytes)};
+        write_to_file(kFileName, crypted_text);
     } catch (const std::exception &exception) {
         std::cout << exception.what() << '\n';
     }

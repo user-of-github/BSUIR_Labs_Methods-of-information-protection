@@ -7,7 +7,7 @@
 #include <fstream>
 
 // file utils
-std::string read_line_from_file(const std::string &file_name);
+std::string read_file(const std::string &file_name);
 
 void write_to_file(const std::string &file_name, const std::string &data);
 
