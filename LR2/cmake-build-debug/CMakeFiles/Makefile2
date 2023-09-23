@@ -92,12 +92,12 @@ clean: CMakeFiles/LR2.dir/clean
 CMakeFiles/LR2.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\LR2.dir\build.make CMakeFiles/LR2.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\LR2.dir\build.make CMakeFiles/LR2.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="D:\Other\HomeWork\Methods Of Information Protection\LR2\cmake-build-debug\CMakeFiles" --progress-num=1,2,3,4 "Built target LR2"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="D:\Other\HomeWork\Methods Of Information Protection\LR2\cmake-build-debug\CMakeFiles" --progress-num=1,2,3,4,5,6 "Built target LR2"
 .PHONY : CMakeFiles/LR2.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/LR2.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "D:\Other\HomeWork\Methods Of Information Protection\LR2\cmake-build-debug\CMakeFiles" 4
+	$(CMAKE_COMMAND) -E cmake_progress_start "D:\Other\HomeWork\Methods Of Information Protection\LR2\cmake-build-debug\CMakeFiles" 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/LR2.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "D:\Other\HomeWork\Methods Of Information Protection\LR2\cmake-build-debug\CMakeFiles" 0
 .PHONY : CMakeFiles/LR2.dir/rule

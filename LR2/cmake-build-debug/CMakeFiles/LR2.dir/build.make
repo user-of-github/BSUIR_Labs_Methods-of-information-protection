@@ -114,11 +114,39 @@ CMakeFiles/LR2.dir/STB_34_101_31_2011/core/core.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LR2.dir/STB_34_101_31_2011/core/core.cpp.s"
 	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Other\HomeWork\Methods Of Information Protection\LR2\STB_34_101_31_2011\core\core.cpp" -o CMakeFiles\LR2.dir\STB_34_101_31_2011\core\core.cpp.s
 
+CMakeFiles/LR2.dir/STB_34_101_31_2011/gamming_with_reversal_connection/gamming_with_reversal_connection.cpp.obj: CMakeFiles/LR2.dir/flags.make
+CMakeFiles/LR2.dir/STB_34_101_31_2011/gamming_with_reversal_connection/gamming_with_reversal_connection.cpp.obj: ../STB_34_101_31_2011/gamming_with_reversal_connection/gamming_with_reversal_connection.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\Other\HomeWork\Methods Of Information Protection\LR2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/LR2.dir/STB_34_101_31_2011/gamming_with_reversal_connection/gamming_with_reversal_connection.cpp.obj"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\LR2.dir\STB_34_101_31_2011\gamming_with_reversal_connection\gamming_with_reversal_connection.cpp.obj -c "D:\Other\HomeWork\Methods Of Information Protection\LR2\STB_34_101_31_2011\gamming_with_reversal_connection\gamming_with_reversal_connection.cpp"
+
+CMakeFiles/LR2.dir/STB_34_101_31_2011/gamming_with_reversal_connection/gamming_with_reversal_connection.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LR2.dir/STB_34_101_31_2011/gamming_with_reversal_connection/gamming_with_reversal_connection.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\Other\HomeWork\Methods Of Information Protection\LR2\STB_34_101_31_2011\gamming_with_reversal_connection\gamming_with_reversal_connection.cpp" > CMakeFiles\LR2.dir\STB_34_101_31_2011\gamming_with_reversal_connection\gamming_with_reversal_connection.cpp.i
+
+CMakeFiles/LR2.dir/STB_34_101_31_2011/gamming_with_reversal_connection/gamming_with_reversal_connection.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LR2.dir/STB_34_101_31_2011/gamming_with_reversal_connection/gamming_with_reversal_connection.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Other\HomeWork\Methods Of Information Protection\LR2\STB_34_101_31_2011\gamming_with_reversal_connection\gamming_with_reversal_connection.cpp" -o CMakeFiles\LR2.dir\STB_34_101_31_2011\gamming_with_reversal_connection\gamming_with_reversal_connection.cpp.s
+
+CMakeFiles/LR2.dir/STB_34_101_31_2011/simple_exhange/simple_exchange.cpp.obj: CMakeFiles/LR2.dir/flags.make
+CMakeFiles/LR2.dir/STB_34_101_31_2011/simple_exhange/simple_exchange.cpp.obj: ../STB_34_101_31_2011/simple_exhange/simple_exchange.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\Other\HomeWork\Methods Of Information Protection\LR2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/LR2.dir/STB_34_101_31_2011/simple_exhange/simple_exchange.cpp.obj"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\LR2.dir\STB_34_101_31_2011\simple_exhange\simple_exchange.cpp.obj -c "D:\Other\HomeWork\Methods Of Information Protection\LR2\STB_34_101_31_2011\simple_exhange\simple_exchange.cpp"
+
+CMakeFiles/LR2.dir/STB_34_101_31_2011/simple_exhange/simple_exchange.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LR2.dir/STB_34_101_31_2011/simple_exhange/simple_exchange.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\Other\HomeWork\Methods Of Information Protection\LR2\STB_34_101_31_2011\simple_exhange\simple_exchange.cpp" > CMakeFiles\LR2.dir\STB_34_101_31_2011\simple_exhange\simple_exchange.cpp.i
+
+CMakeFiles/LR2.dir/STB_34_101_31_2011/simple_exhange/simple_exchange.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LR2.dir/STB_34_101_31_2011/simple_exhange/simple_exchange.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Other\HomeWork\Methods Of Information Protection\LR2\STB_34_101_31_2011\simple_exhange\simple_exchange.cpp" -o CMakeFiles\LR2.dir\STB_34_101_31_2011\simple_exhange\simple_exchange.cpp.s
+
 # Object files for target LR2
 LR2_OBJECTS = \
 "CMakeFiles/LR2.dir/main.cpp.obj" \
 "CMakeFiles/LR2.dir/utils/utils.cpp.obj" \
-"CMakeFiles/LR2.dir/STB_34_101_31_2011/core/core.cpp.obj"
+"CMakeFiles/LR2.dir/STB_34_101_31_2011/core/core.cpp.obj" \
+"CMakeFiles/LR2.dir/STB_34_101_31_2011/gamming_with_reversal_connection/gamming_with_reversal_connection.cpp.obj" \
+"CMakeFiles/LR2.dir/STB_34_101_31_2011/simple_exhange/simple_exchange.cpp.obj"
 
 # External object files for target LR2
 LR2_EXTERNAL_OBJECTS =
@@ -126,11 +154,13 @@ LR2_EXTERNAL_OBJECTS =
 LR2.exe: CMakeFiles/LR2.dir/main.cpp.obj
 LR2.exe: CMakeFiles/LR2.dir/utils/utils.cpp.obj
 LR2.exe: CMakeFiles/LR2.dir/STB_34_101_31_2011/core/core.cpp.obj
+LR2.exe: CMakeFiles/LR2.dir/STB_34_101_31_2011/gamming_with_reversal_connection/gamming_with_reversal_connection.cpp.obj
+LR2.exe: CMakeFiles/LR2.dir/STB_34_101_31_2011/simple_exhange/simple_exchange.cpp.obj
 LR2.exe: CMakeFiles/LR2.dir/build.make
 LR2.exe: CMakeFiles/LR2.dir/linklibs.rsp
 LR2.exe: CMakeFiles/LR2.dir/objects1.rsp
 LR2.exe: CMakeFiles/LR2.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="D:\Other\HomeWork\Methods Of Information Protection\LR2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable LR2.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="D:\Other\HomeWork\Methods Of Information Protection\LR2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable LR2.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\LR2.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

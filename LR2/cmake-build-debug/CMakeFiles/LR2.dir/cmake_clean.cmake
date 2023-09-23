@@ -1,5 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/LR2.dir/STB_34_101_31_2011/core/core.cpp.obj"
+  "CMakeFiles/LR2.dir/STB_34_101_31_2011/gamming_with_reversal_connection/gamming_with_reversal_connection.cpp.obj"
+  "CMakeFiles/LR2.dir/STB_34_101_31_2011/simple_exhange/simple_exchange.cpp.obj"
   "CMakeFiles/LR2.dir/main.cpp.obj"
   "CMakeFiles/LR2.dir/utils/utils.cpp.obj"
   "LR2.exe"

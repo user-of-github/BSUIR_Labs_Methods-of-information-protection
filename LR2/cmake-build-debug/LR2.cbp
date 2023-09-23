@@ -89,7 +89,22 @@
 		<Unit filename="D:/Other/HomeWork/Methods Of Information Protection/LR2/STB_34_101_31_2011/core/core.hpp">
 			<Option target="LR2"/>
 		</Unit>
+		<Unit filename="D:/Other/HomeWork/Methods Of Information Protection/LR2/STB_34_101_31_2011/gamming_with_reversal_connection/gamming_with_reversal_connection.cpp">
+			<Option target="LR2"/>
+		</Unit>
+		<Unit filename="D:/Other/HomeWork/Methods Of Information Protection/LR2/STB_34_101_31_2011/gamming_with_reversal_connection/gamming_with_reversal_connection.hpp">
+			<Option target="LR2"/>
+		</Unit>
+		<Unit filename="D:/Other/HomeWork/Methods Of Information Protection/LR2/STB_34_101_31_2011/simple_exhange/simple_exchange.cpp">
+			<Option target="LR2"/>
+		</Unit>
+		<Unit filename="D:/Other/HomeWork/Methods Of Information Protection/LR2/STB_34_101_31_2011/simple_exhange/simple_exchange.hpp">
+			<Option target="LR2"/>
+		</Unit>
 		<Unit filename="D:/Other/HomeWork/Methods Of Information Protection/LR2/main.cpp">
+			<Option target="LR2"/>
+		</Unit>
+		<Unit filename="D:/Other/HomeWork/Methods Of Information Protection/LR2/secret_parameters.hpp">
 			<Option target="LR2"/>
 		</Unit>
 		<Unit filename="D:/Other/HomeWork/Methods Of Information Protection/LR2/utils/utils.cpp">

@@ -168,6 +168,60 @@ STB_34_101_31_2011/core/core.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\LR2.dir\build.make CMakeFiles/LR2.dir/STB_34_101_31_2011/core/core.cpp.s
 .PHONY : STB_34_101_31_2011/core/core.cpp.s
 
+STB_34_101_31_2011/gamming_with_reversal_connection/gamming_with_reversal_connection.obj: STB_34_101_31_2011/gamming_with_reversal_connection/gamming_with_reversal_connection.cpp.obj
+
+.PHONY : STB_34_101_31_2011/gamming_with_reversal_connection/gamming_with_reversal_connection.obj
+
+# target to build an object file
+STB_34_101_31_2011/gamming_with_reversal_connection/gamming_with_reversal_connection.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LR2.dir\build.make CMakeFiles/LR2.dir/STB_34_101_31_2011/gamming_with_reversal_connection/gamming_with_reversal_connection.cpp.obj
+.PHONY : STB_34_101_31_2011/gamming_with_reversal_connection/gamming_with_reversal_connection.cpp.obj
+
+STB_34_101_31_2011/gamming_with_reversal_connection/gamming_with_reversal_connection.i: STB_34_101_31_2011/gamming_with_reversal_connection/gamming_with_reversal_connection.cpp.i
+
+.PHONY : STB_34_101_31_2011/gamming_with_reversal_connection/gamming_with_reversal_connection.i
+
+# target to preprocess a source file
+STB_34_101_31_2011/gamming_with_reversal_connection/gamming_with_reversal_connection.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LR2.dir\build.make CMakeFiles/LR2.dir/STB_34_101_31_2011/gamming_with_reversal_connection/gamming_with_reversal_connection.cpp.i
+.PHONY : STB_34_101_31_2011/gamming_with_reversal_connection/gamming_with_reversal_connection.cpp.i
+
+STB_34_101_31_2011/gamming_with_reversal_connection/gamming_with_reversal_connection.s: STB_34_101_31_2011/gamming_with_reversal_connection/gamming_with_reversal_connection.cpp.s
+
+.PHONY : STB_34_101_31_2011/gamming_with_reversal_connection/gamming_with_reversal_connection.s
+
+# target to generate assembly for a file
+STB_34_101_31_2011/gamming_with_reversal_connection/gamming_with_reversal_connection.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LR2.dir\build.make CMakeFiles/LR2.dir/STB_34_101_31_2011/gamming_with_reversal_connection/gamming_with_reversal_connection.cpp.s
+.PHONY : STB_34_101_31_2011/gamming_with_reversal_connection/gamming_with_reversal_connection.cpp.s
+
+STB_34_101_31_2011/simple_exhange/simple_exchange.obj: STB_34_101_31_2011/simple_exhange/simple_exchange.cpp.obj
+
+.PHONY : STB_34_101_31_2011/simple_exhange/simple_exchange.obj
+
+# target to build an object file
+STB_34_101_31_2011/simple_exhange/simple_exchange.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LR2.dir\build.make CMakeFiles/LR2.dir/STB_34_101_31_2011/simple_exhange/simple_exchange.cpp.obj
+.PHONY : STB_34_101_31_2011/simple_exhange/simple_exchange.cpp.obj
+
+STB_34_101_31_2011/simple_exhange/simple_exchange.i: STB_34_101_31_2011/simple_exhange/simple_exchange.cpp.i
+
+.PHONY : STB_34_101_31_2011/simple_exhange/simple_exchange.i
+
+# target to preprocess a source file
+STB_34_101_31_2011/simple_exhange/simple_exchange.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LR2.dir\build.make CMakeFiles/LR2.dir/STB_34_101_31_2011/simple_exhange/simple_exchange.cpp.i
+.PHONY : STB_34_101_31_2011/simple_exhange/simple_exchange.cpp.i
+
+STB_34_101_31_2011/simple_exhange/simple_exchange.s: STB_34_101_31_2011/simple_exhange/simple_exchange.cpp.s
+
+.PHONY : STB_34_101_31_2011/simple_exhange/simple_exchange.s
+
+# target to generate assembly for a file
+STB_34_101_31_2011/simple_exhange/simple_exchange.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LR2.dir\build.make CMakeFiles/LR2.dir/STB_34_101_31_2011/simple_exhange/simple_exchange.cpp.s
+.PHONY : STB_34_101_31_2011/simple_exhange/simple_exchange.cpp.s
+
 main.obj: main.cpp.obj
 
 .PHONY : main.obj
@@ -234,6 +288,12 @@ help:
 	@echo ... STB_34_101_31_2011/core/core.obj
 	@echo ... STB_34_101_31_2011/core/core.i
 	@echo ... STB_34_101_31_2011/core/core.s
+	@echo ... STB_34_101_31_2011/gamming_with_reversal_connection/gamming_with_reversal_connection.obj
+	@echo ... STB_34_101_31_2011/gamming_with_reversal_connection/gamming_with_reversal_connection.i
+	@echo ... STB_34_101_31_2011/gamming_with_reversal_connection/gamming_with_reversal_connection.s
+	@echo ... STB_34_101_31_2011/simple_exhange/simple_exchange.obj
+	@echo ... STB_34_101_31_2011/simple_exhange/simple_exchange.i
+	@echo ... STB_34_101_31_2011/simple_exhange/simple_exchange.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

@@ -6,9 +6,23 @@ CMakeFiles/LR2.dir/STB_34_101_31_2011/core/core.cpp.obj: ../STB_34_101_31_2011/c
 CMakeFiles/LR2.dir/STB_34_101_31_2011/core/core.cpp.obj: ../STB_34_101_31_2011/core/core.hpp
 CMakeFiles/LR2.dir/STB_34_101_31_2011/core/core.cpp.obj: ../utils/utils.hpp
 
+CMakeFiles/LR2.dir/STB_34_101_31_2011/gamming_with_reversal_connection/gamming_with_reversal_connection.cpp.obj: ../STB_34_101_31_2011/core/constants.hpp
+CMakeFiles/LR2.dir/STB_34_101_31_2011/gamming_with_reversal_connection/gamming_with_reversal_connection.cpp.obj: ../STB_34_101_31_2011/core/core.hpp
+CMakeFiles/LR2.dir/STB_34_101_31_2011/gamming_with_reversal_connection/gamming_with_reversal_connection.cpp.obj: ../STB_34_101_31_2011/gamming_with_reversal_connection/gamming_with_reversal_connection.cpp
+CMakeFiles/LR2.dir/STB_34_101_31_2011/gamming_with_reversal_connection/gamming_with_reversal_connection.cpp.obj: ../STB_34_101_31_2011/gamming_with_reversal_connection/gamming_with_reversal_connection.hpp
+CMakeFiles/LR2.dir/STB_34_101_31_2011/gamming_with_reversal_connection/gamming_with_reversal_connection.cpp.obj: ../utils/utils.hpp
+
+CMakeFiles/LR2.dir/STB_34_101_31_2011/simple_exhange/simple_exchange.cpp.obj: ../STB_34_101_31_2011/core/constants.hpp
+CMakeFiles/LR2.dir/STB_34_101_31_2011/simple_exhange/simple_exchange.cpp.obj: ../STB_34_101_31_2011/core/core.hpp
+CMakeFiles/LR2.dir/STB_34_101_31_2011/simple_exhange/simple_exchange.cpp.obj: ../STB_34_101_31_2011/simple_exhange/simple_exchange.cpp
+CMakeFiles/LR2.dir/STB_34_101_31_2011/simple_exhange/simple_exchange.cpp.obj: ../STB_34_101_31_2011/simple_exhange/simple_exchange.hpp
+CMakeFiles/LR2.dir/STB_34_101_31_2011/simple_exhange/simple_exchange.cpp.obj: ../utils/utils.hpp
+
 CMakeFiles/LR2.dir/main.cpp.obj: ../STB_34_101_31_2011/core/constants.hpp
 CMakeFiles/LR2.dir/main.cpp.obj: ../STB_34_101_31_2011/core/core.hpp
+CMakeFiles/LR2.dir/main.cpp.obj: ../STB_34_101_31_2011/simple_exhange/simple_exchange.hpp
 CMakeFiles/LR2.dir/main.cpp.obj: ../main.cpp
+CMakeFiles/LR2.dir/main.cpp.obj: ../secret_parameters.hpp
 CMakeFiles/LR2.dir/main.cpp.obj: ../utils/utils.hpp
 
 CMakeFiles/LR2.dir/utils/utils.cpp.obj: ../utils/utils.cpp
