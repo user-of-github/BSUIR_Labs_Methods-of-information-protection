@@ -4,16 +4,18 @@
 std::string read_file(const std::string &file_name)
 {
     std::ifstream read_file(file_name);
-    if(read_file.fail()){
+    if (read_file.fail())
+    {
         read_file.close();
         throw std::invalid_argument("File does not exist");
     }
+
     std::string text{};
     char symbol{};
+
     while (read_file >> std::noskipws >> symbol)
-    {
         text.append(std::string{symbol});
-    }
+
     read_file.close();
 
     return text;
@@ -25,7 +27,6 @@ void write_to_file(const std::string &file_name, const std::string &data)
     write_file << data;
     write_file.close();
 }
-
 
 
 std::vector<uint8_t> slice_vector(const std::vector<uint8_t> &source, const std::size_t from, const std::size_t len)
@@ -49,8 +50,7 @@ std::vector<std::vector<uint8_t>> split_vector_on_blocks(const std::vector<uint8
 
     for (std::size_t index{0}; index < source.size(); index += block_size)
     {
-        const std::vector<uint8_t> sliced {slice_vector(source, index, block_size)};
-
+        const std::vector<uint8_t> sliced{slice_vector(source, index, block_size)};
         response.push_back(sliced);
     }
 
@@ -62,9 +62,7 @@ std::vector<uint8_t> transform_text_to_bytes_array(const std::string &source)
     std::vector<uint8_t> bytes{};
 
     for (const char symbol : source)
-    {
         bytes.push_back((uint8_t) (char) symbol);
-    }
 
     return bytes;
 }
@@ -74,9 +72,7 @@ std::string transform_bytes_array_to_text(const std::vector<uint8_t> &bytes)
     std::string text{};
 
     for (const uint8_t byte : bytes)
-    {
         text += (char) byte;
-    }
 
     return text;
 }
@@ -87,13 +83,10 @@ std::string make_necessary_length(const std::string &source)
     std::string response{std::cbegin(source), std::cend(source)};
 
     while (response.size() % kNecessaryBlockSize != 0)
-    {
         response.append(" ");
-    }
 
     return response;
 }
-
 
 
 void validate_key(const std::vector<uint8_t> &key)
@@ -101,9 +94,7 @@ void validate_key(const std::vector<uint8_t> &key)
     const static std::size_t kKeySize{32};
 
     if (key.size() != kKeySize)
-    {
         throw std::invalid_argument("Key length must be 32 bytes (32 bytes = 256 bits)");
-    }
 }
 
 
@@ -112,19 +103,15 @@ void validate_open_text(const std::vector<uint8_t> &open_text)
     const static std::size_t kBlockSizeInOpenTextForEncrypting{8};
 
     if (open_text.size() % kBlockSizeInOpenTextForEncrypting != 0)
-    {
         throw std::invalid_argument("Open text must consist of number of elements which is multiple of block-size (8)");
-    }
 }
 
 
 void validate_initial_gamma(const std::vector<uint8_t> &gamma)
 {
-    const static std::size_t kGammaNecessarySize{8};
+    const static std::size_t kGammaNecessarySize{16};
 
     if (gamma.size() != kGammaNecessarySize)
-    {
         throw std::invalid_argument("Initial gamma must be with length of 8");
-    }
 }
 

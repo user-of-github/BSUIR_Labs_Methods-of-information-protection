@@ -1,4 +1,2 @@
-Test symbols
-123
-русский текст
-обэма
+Важные текстовые данные
+23.09.2023 And some english as well

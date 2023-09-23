@@ -13,22 +13,20 @@ void write_to_file(const std::string &file_name, const std::string &data);
 
 
 // output utilities
-template <typename T>
+template<typename T>
 void print_vector(const std::vector<T> &source)
 {
     for (const auto &value : source)
-    {
         std::cout << (int) value << ' ';
-    }
+
     std::cout << '\n';
 }
-template <typename T>
+
+template<typename T>
 void print_2d_vector(const std::vector<std::vector<T>> &source)
 {
     for (const auto &value : source)
-    {
         print_vector(value);
-    }
 }
 
 
