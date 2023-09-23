@@ -105,6 +105,10 @@ std::vector<uint8_t> encrypt_block(const std::vector<uint8_t> &block, const std:
         b_copy ^= gTransform21(a_copy + subkey_blocks.at((13 - i) & 7));
         c_copy ^= gTransform5(d_copy + subkey_blocks.at((14 - i) & 7));
 
+        std::swap(a_copy, b_copy);
+        std::swap(c_copy, d_copy);
+        std::swap(b_copy, c_copy);
+
         a = b_copy;
         b = d_copy;
         c = a_copy;
@@ -133,6 +137,10 @@ std::vector<uint8_t> decrypt_block(const std::vector<uint8_t> &block, const std:
         d_copy += gTransform13(c_copy + subkeys.at((10 - i) & 7));
         b_copy ^= gTransform21(a_copy + subkeys.at((9 - i) & 7));
         c_copy ^= gTransform5(d_copy + subkeys.at((8 - i) & 7));
+
+        std::swap(a_copy, b_copy);
+        std::swap(c_copy, d_copy);
+        std::swap(a_copy, d_copy);
 
         a = c_copy;
         b = a_copy;
