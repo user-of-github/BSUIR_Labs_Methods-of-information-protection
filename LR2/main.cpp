@@ -15,8 +15,8 @@ int main()
         validate_key(key);
         validate_initial_gamma(gamma);
 
-        //const auto crypted_bytes {encrypt_by_stb_34_101_31_2011_with_reversal_gamma(text_bytes, key, gamma)};
-        const auto crypted_bytes{decrypt_by_stb_34_101_31_2011_with_reversal_gamma(text_bytes, key, gamma)};
+        const auto crypted_bytes {encrypt_by_stb_34_101_31_2011_with_reversal_gamma(text_bytes, key, gamma)};
+        //const auto crypted_bytes{decrypt_by_stb_34_101_31_2011_with_reversal_gamma(text_bytes, key, gamma)};
         const std::string crypted_text{transform_bytes_array_to_text(crypted_bytes)};
         write_to_file(kFileName, crypted_text);
 
