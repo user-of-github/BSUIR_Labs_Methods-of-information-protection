@@ -10,10 +10,6 @@ D:/Other/HomeWork/Methods Of Information Protection/LR2/STB_34_101_31_2011/core/
 array
 -
 
-D:/Other/HomeWork/Methods Of Information Protection/LR2/STB_34_101_31_2011/core/core.cpp
-./core.hpp
-D:/Other/HomeWork/Methods Of Information Protection/LR2/STB_34_101_31_2011/core/core.hpp
-
 D:/Other/HomeWork/Methods Of Information Protection/LR2/STB_34_101_31_2011/core/core.hpp
 tuple
 -
@@ -22,17 +18,9 @@ D:/Other/HomeWork/Methods Of Information Protection/LR2/utils/utils.hpp
 ./constants.hpp
 D:/Other/HomeWork/Methods Of Information Protection/LR2/STB_34_101_31_2011/core/constants.hpp
 
-D:/Other/HomeWork/Methods Of Information Protection/LR2/STB_34_101_31_2011/gamming_with_reversal_connection/gamming_with_reversal_connection.cpp
-./gamming_with_reversal_connection.hpp
-D:/Other/HomeWork/Methods Of Information Protection/LR2/STB_34_101_31_2011/gamming_with_reversal_connection/gamming_with_reversal_connection.hpp
-
 D:/Other/HomeWork/Methods Of Information Protection/LR2/STB_34_101_31_2011/gamming_with_reversal_connection/gamming_with_reversal_connection.hpp
 ../core/core.hpp
 D:/Other/HomeWork/Methods Of Information Protection/LR2/STB_34_101_31_2011/core/core.hpp
-
-D:/Other/HomeWork/Methods Of Information Protection/LR2/STB_34_101_31_2011/simple_exhange/simple_exchange.cpp
-./simple_exchange.hpp
-D:/Other/HomeWork/Methods Of Information Protection/LR2/STB_34_101_31_2011/simple_exhange/simple_exchange.hpp
 
 D:/Other/HomeWork/Methods Of Information Protection/LR2/STB_34_101_31_2011/simple_exhange/simple_exchange.hpp
 ../core/core.hpp
@@ -43,6 +31,8 @@ iostream
 -
 ./STB_34_101_31_2011/simple_exhange/simple_exchange.hpp
 D:/Other/HomeWork/Methods Of Information Protection/LR2/STB_34_101_31_2011/simple_exhange/simple_exchange.hpp
+./STB_34_101_31_2011/gamming_with_reversal_connection/gamming_with_reversal_connection.hpp
+D:/Other/HomeWork/Methods Of Information Protection/LR2/STB_34_101_31_2011/gamming_with_reversal_connection/gamming_with_reversal_connection.hpp
 ./secret_parameters.hpp
 D:/Other/HomeWork/Methods Of Information Protection/LR2/secret_parameters.hpp
 

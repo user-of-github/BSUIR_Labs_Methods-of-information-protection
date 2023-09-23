@@ -20,6 +20,7 @@ CMakeFiles/LR2.dir/STB_34_101_31_2011/simple_exhange/simple_exchange.cpp.obj: ..
 
 CMakeFiles/LR2.dir/main.cpp.obj: ../STB_34_101_31_2011/core/constants.hpp
 CMakeFiles/LR2.dir/main.cpp.obj: ../STB_34_101_31_2011/core/core.hpp
+CMakeFiles/LR2.dir/main.cpp.obj: ../STB_34_101_31_2011/gamming_with_reversal_connection/gamming_with_reversal_connection.hpp
 CMakeFiles/LR2.dir/main.cpp.obj: ../STB_34_101_31_2011/simple_exhange/simple_exchange.hpp
 CMakeFiles/LR2.dir/main.cpp.obj: ../main.cpp
 CMakeFiles/LR2.dir/main.cpp.obj: ../secret_parameters.hpp
