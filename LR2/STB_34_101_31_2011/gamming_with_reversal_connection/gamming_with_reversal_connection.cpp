@@ -1,5 +1,6 @@
 #include "./gamming_with_reversal_connection.hpp"
 
+
 std::vector<uint8_t> apply_gamma(const std::vector<uint8_t> &one, const std::vector<uint8_t> &two)
 {
     std::vector<uint8_t> response{};
