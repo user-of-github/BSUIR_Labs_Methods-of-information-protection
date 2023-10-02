@@ -1,6 +1,6 @@
 ## Laboratory works on the subject Methods of Information Protection (Методы защиты информации (МЗИ)) | Cryptography
 ---
-_Криптографические алогритмы шифрования_  
+_Криптографические алгоритмы на языке C++_  
 _С++_
 ___  
 
