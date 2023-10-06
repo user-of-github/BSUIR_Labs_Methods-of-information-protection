@@ -3,4 +3,4 @@ project(LR3)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(LR3 main.cpp rabin/rabin.hpp rabin/rabin.cpp)
+add_executable(LR3 main.cpp utils/utils.hpp utils/utils.cpp rabin/rabin.hpp rabin/rabin.cpp)

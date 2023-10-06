@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/Other/HomeWork/Methods Of Information Protection/LR3/rabin/rabin.cpp
+./rabin.hpp
+D:/Other/HomeWork/Methods Of Information Protection/LR3/rabin/rabin.hpp
+
+D:/Other/HomeWork/Methods Of Information Protection/LR3/rabin/rabin.hpp
+cmath
+-
+utility
+-
+array
+-
+cstdlib
+-
+../utils/utils.hpp
+D:/Other/HomeWork/Methods Of Information Protection/LR3/utils/utils.hpp
+
+D:/Other/HomeWork/Methods Of Information Protection/LR3/utils/utils.hpp
+array
+-
+vector
+-
+cstdint
+-
+iostream
+-
+fstream
+-
+
