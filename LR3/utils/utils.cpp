@@ -38,7 +38,6 @@ std::vector<BigNumber> read_numbers_file(const std::string &file_name) {
 
 void write_string_to_file(const std::string &file_name, const std::string &text) {
    std::ofstream write_file(file_name);
-
    write_file << text;
    write_file.close();
 }
@@ -64,8 +63,8 @@ std::vector<BigNumber> convert_text_to_bytes_array(const std::string &source) {
 std::string convert_bytes_array_to_text(const std::vector<BigNumber> &bytes) {
    std::string text{};
 
-   for (const uint8_t byte : bytes)
-      text += (char) byte;
+   for (const auto byte : bytes)
+      text.append(std::string{char(byte)});
 
    return text;
 }

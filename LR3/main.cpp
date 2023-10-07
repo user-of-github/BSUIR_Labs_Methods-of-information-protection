@@ -1,6 +1,6 @@
 #include <iostream>
-#include <vector>
 #include "./rabin/rabin.hpp"
+
 
 int main() {
    const std::string kSourceName{"input.txt"}; // source open text
@@ -9,19 +9,8 @@ int main() {
 
    try {
       const auto[public_key, private_key]{generate_rabin_key()};
-      const auto n{public_key};
-      const auto[p, q]{private_key};
-
-      const std::string message{read_text_file(kSourceName)};
-
-      const std::vector<BigNumber> message_numbers{convert_text_to_bytes_array(message)};
-      print_numbers(message_numbers);
-      const auto encrypted{encrypt_sequence(message_numbers, n)};
-      print_numbers(encrypted);
-//        //TODO: maybe multiply by 1 negative ? xD
-      const auto decrypted{decrypt_sequence(encrypted, p, q)};
-      print_numbers(decrypted);
-//        write_numbers_to_file(kFileName, message_numbers);
+      encrypt_file(kSourceName, kEncryptedFileName, public_key);
+      decrypt_file(kEncryptedFileName, kDecryptedFileName, private_key);
    }
    catch (const std::exception &exception) {
       std::cout << exception.what() << '\n';

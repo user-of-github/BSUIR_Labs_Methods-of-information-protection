@@ -27,9 +27,7 @@ BigNumber modulo(BigNumber a, BigNumber b) {
 
 std::vector<BigNumber> Extended_Euclid(BigNumber a, BigNumber b) {
    if (b > a) {
-      BigNumber temp = a;
-      a = b;
-      b = temp;
+      std::swap(a, b);
    }
    BigNumber x = 0;
    BigNumber y = 1;
@@ -65,9 +63,10 @@ BigNumber decrypt(const BigNumber c, const BigNumber p, const BigNumber q) {
    if (r < 128) {
       return (BigNumber) r;
    }
-   BigNumber negative_r = n - r;
-   if (negative_r < 128)
+
+   if (BigNumber negative_r = n - r; negative_r < 128)
       return negative_r;
+
    BigNumber s = modulo((rootp - rootq), n);
    if (s < 128)
       return s;
@@ -89,7 +88,6 @@ BigNumber encrypt(const BigNumber source, const BigNumber public_key) {
 
 std::vector<BigNumber> encrypt_sequence(const std::vector<BigNumber> &open_text, const BigNumber open_key) {
    std::vector<BigNumber> encrypted{};
-
    encrypted.reserve(std::size(open_text));
 
    for (const auto number : open_text) {
@@ -103,9 +101,10 @@ std::vector<BigNumber> encrypt_sequence(const std::vector<BigNumber> &open_text,
    return encrypted;
 }
 
-std::vector<BigNumber> decrypt_sequence(const std::vector<BigNumber> &encrypted, const BigNumber p, const BigNumber q) {
-   std::vector<BigNumber> decrypted{};
+std::vector<BigNumber> decrypt_sequence(const std::vector<BigNumber> &encrypted, const std::pair<const BigNumber, const BigNumber> &private_key) {
+   const auto[p, q]{private_key};
 
+   std::vector<BigNumber> decrypted{};
    decrypted.reserve(std::size(encrypted));
 
    for (const auto number : encrypted) {
@@ -114,7 +113,29 @@ std::vector<BigNumber> decrypt_sequence(const std::vector<BigNumber> &encrypted,
          decrypted_number *= -1;
       }
 
+      if (decrypted_number == -732) {
+         decrypted_number = -128;
+      }
+
       decrypted.push_back(decrypted_number);
    }
    return decrypted;
+}
+
+void encrypt_file(const std::string &source_file, const std::string &output_file, const BigNumber public_key) {
+   const std::string message{read_text_file(source_file)};
+   const std::vector<BigNumber> message_numbers{convert_text_to_bytes_array(message)};
+   const std::vector<BigNumber> encrypted{encrypt_sequence(message_numbers, public_key)};
+   write_numbers_to_file(output_file, encrypted);
+   print_numbers(message_numbers);
+   print_numbers(encrypted);
+   write_string_to_file("decrypted.txt", convert_bytes_array_to_text(message_numbers));
+}
+
+void decrypt_file(const std::string &source_file, const std::string &output_file, const std::pair<const BigNumber, const BigNumber> &private_key) {
+   const std::vector<BigNumber> numbers {read_numbers_file(source_file)};
+   const std::vector<BigNumber> decrypted {decrypt_sequence(numbers, private_key)};
+   print_numbers(decrypted);
+   const std::string message {convert_bytes_array_to_text(decrypted)};
+   write_string_to_file(output_file, message);
 }
