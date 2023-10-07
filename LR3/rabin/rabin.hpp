@@ -7,14 +7,14 @@
 #include  <cstdlib>
 #include "../utils/utils.hpp"
 
-std::pair<const BigNumber, const std::pair<const BigNumber, const BigNumber>> generate_rabin_key();
+std::pair<const Number, const std::pair<const Number, const Number>> generate_rabin_key();
 
-std::vector<BigNumber> encrypt_sequence(const std::vector<BigNumber> &open_text, const BigNumber open_key);
+std::vector<Number> encrypt_sequence(const std::vector<Number> &open_text, const Number open_key);
 
-std::vector<BigNumber> decrypt_sequence(const std::vector<BigNumber> &decrypted, const std::pair<const BigNumber, const BigNumber> &private_key);
+std::vector<Number> decrypt_sequence(const std::vector<Number> &decrypted, const std::pair<const Number, const Number> &private_key);
 
-void encrypt_file(const std::string &source_file, const std::string &output_file, const BigNumber public_key);
+void encrypt_file(const std::string &source_file, const std::string &output_file, const Number public_key);
 
-void decrypt_file(const std::string &source_file, const std::string &output_file, const std::pair<const BigNumber, const BigNumber> &private_key);
+void decrypt_file(const std::string &source_file, const std::string &output_file, const std::pair<const Number, const Number> &private_key);
 
 #endif //LR3_RABIN_HPP
