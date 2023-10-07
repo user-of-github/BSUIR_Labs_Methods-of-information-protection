@@ -1,5 +1,14 @@
 #include "./rabin.hpp"
 
+void check_invalid(const BigNumber before_decryption, BigNumber &after_decryption) { // problem with unknown cyrillic symbol in my encoding
+   if (before_decryption < 0) {
+      after_decryption *= -1;
+   }
+
+   if (after_decryption == -732) {
+      after_decryption = -128;
+   }
+}
 BigNumber mod(BigNumber k, BigNumber b, BigNumber m) //chinese remainder theorem implementation
 {
    BigNumber i = 0;
@@ -109,13 +118,7 @@ std::vector<BigNumber> decrypt_sequence(const std::vector<BigNumber> &encrypted,
 
    for (const auto number : encrypted) {
       auto decrypted_number{decrypt(number, p, q)};
-      if (number < 0) {
-         decrypted_number *= -1;
-      }
-
-      if (decrypted_number == -732) {
-         decrypted_number = -128;
-      }
+      check_invalid(number, decrypted_number);
 
       decrypted.push_back(decrypted_number);
    }
