@@ -6,6 +6,14 @@
 
 #IncludeRegexTransform: 
 
+D:/Other/HomeWork/Methods Of Information Protection/LR3/main.cpp
+iostream
+-
+vector
+-
+./rabin/rabin.hpp
+D:/Other/HomeWork/Methods Of Information Protection/LR3/rabin/rabin.hpp
+
 D:/Other/HomeWork/Methods Of Information Protection/LR3/rabin/rabin.cpp
 ./rabin.hpp
 D:/Other/HomeWork/Methods Of Information Protection/LR3/rabin/rabin.hpp
@@ -20,6 +28,10 @@ array
 cstdlib
 -
 ../utils/utils.hpp
+D:/Other/HomeWork/Methods Of Information Protection/LR3/utils/utils.hpp
+
+D:/Other/HomeWork/Methods Of Information Protection/LR3/utils/utils.cpp
+./utils.hpp
 D:/Other/HomeWork/Methods Of Information Protection/LR3/utils/utils.hpp
 
 D:/Other/HomeWork/Methods Of Information Protection/LR3/utils/utils.hpp
