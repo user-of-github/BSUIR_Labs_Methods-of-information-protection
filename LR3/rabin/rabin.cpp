@@ -1,6 +1,6 @@
 #include "./rabin.hpp"
 
-Number mod(Number k, Number b, Number m) //chinese remainder theorem implementation
+Number mod(Number k, Number b, Number m)
 {
    Number i{0}, a{1};
 
@@ -24,8 +24,9 @@ Number mod(Number k, Number b, Number m) //chinese remainder theorem implementat
    return a;
 }
 
-std::map<Number, Number> crl {}; // border-ascii
+
 // unknown cyrillic symbol in my encoding
+std::map<Number, Number> crl {}; // border-ascii
 void check_invalid(const Number before_decryption, Number &after_decryption) {
    if (crl.contains(before_decryption)) {
       after_decryption = crl.at(before_decryption);
@@ -42,28 +43,30 @@ Number modulo(Number a, Number b) {
 Number decrypt(const Number c, const Number p, const Number q) {
    const Number n{p * q};
 
-   Number mp{mod((p + 1) / 4, c, p)};
-   Number mq{mod((q + 1) / 4, c, q)};
+   //chinese remainder theorem implementation
+   const Number mp{mod((p + 1) / 4, c, p)}; // c^((p+1)/4)
+   const Number mq{mod((q + 1) / 4, c, q)}; // c^((q+1)/4)
 
+   // y[p] * p + y[q] * q = 1
    std::vector<Number> arr{extended_euclid(p, q)};
 
-   Number rootp{arr[0] * p * mq};
-   Number rootq{arr[1] * q * mp};
-   long double r = modulo((rootp + rootq), n);
+   const Number rootp{arr[0] * p * mq};
+   const Number rootq{arr[1] * q * mp};
+   const long double r = modulo((rootp + rootq), n); // x1
 
    if (r < 128) {
       return (Number) r;
    }
 
-   if (Number negative_r = n - r; negative_r < 128)
+   if (const Number negative_r = n - r; negative_r < 128) // x2
       return negative_r;
 
-   Number s{modulo((rootp - rootq), n)};
+   const Number s{modulo((rootp - rootq), n)}; // x3
 
    if (s < 128)
       return s;
 
-   Number negative_s{n - s};
+   Number negative_s{n - s}; // x4
 
    return negative_s;
 }

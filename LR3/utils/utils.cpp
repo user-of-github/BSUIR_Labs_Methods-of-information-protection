@@ -77,7 +77,13 @@ void print_numbers(const std::vector<Number> &array) {
    std::cout << '\n';
 }
 
+/*
+General Euclid algorithm finds GCD
+Extended Euclid algorithm also finds coefficients that  // y[p] * p + y[q] * q = 1
+ */
 std::vector<Number> extended_euclid(Number a, Number b) {
+
+
    if (b > a) {
       std::swap(a, b);
    }
