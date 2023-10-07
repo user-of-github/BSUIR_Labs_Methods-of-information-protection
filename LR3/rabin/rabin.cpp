@@ -1,27 +1,18 @@
 #include "./rabin.hpp"
 
-void check_invalid(const Number before_decryption, Number &after_decryption) { // problem with unknown cyrillic symbol in my encoding
-   if (before_decryption < 0) {
-      after_decryption *= -1;
-   }
-
-   if (after_decryption == -732) {
-      after_decryption = -128;
-   }
-}
-
 Number mod(Number k, Number b, Number m) //chinese remainder theorem implementation
 {
-   Number i {0}, a{1};
+   Number i{0}, a{1};
 
    std::vector<Number> temp;
+
    while (k > 0) {
       temp.push_back(k % 2);
       k = (k - temp[i]) / 2;
       i++;
    }
 
-   for (Number j {0}; j < i; j++) {
+   for (Number j{0}; j < i; j++) {
       if (temp[j] == 1) {
          a = (a * b) % m;
          b = (b * b) % m;
@@ -29,7 +20,18 @@ Number mod(Number k, Number b, Number m) //chinese remainder theorem implementat
          b = (b * b) % m;
       }
    }
+
    return a;
+}
+
+std::map<Number, Number> crl {}; // border-ascii
+// unknown cyrillic symbol in my encoding
+void check_invalid(const Number before_decryption, Number &after_decryption) {
+   if (crl.contains(before_decryption)) {
+      after_decryption = crl.at(before_decryption);
+   } else if (before_decryption < 0) {
+      after_decryption *= -1;
+   }
 }
 
 Number modulo(Number a, Number b) {
@@ -37,18 +39,16 @@ Number modulo(Number a, Number b) {
    return a >= 0 ? a % b : (b - (Number) llabs(a % b)) % b;
 }
 
-
-
 Number decrypt(const Number c, const Number p, const Number q) {
    const Number n{p * q};
 
-   Number mp {mod((p + 1) / 4, c, p)};
-   Number mq {mod((q + 1) / 4, c, q)};
+   Number mp{mod((p + 1) / 4, c, p)};
+   Number mq{mod((q + 1) / 4, c, q)};
 
-   std::vector<Number> arr {extended_euclid(p, q)};
+   std::vector<Number> arr{extended_euclid(p, q)};
 
-   Number rootp {arr[0] * p * mq};
-   Number rootq {arr[1] * q * mp};
+   Number rootp{arr[0] * p * mq};
+   Number rootq{arr[1] * q * mp};
    long double r = modulo((rootp + rootq), n);
 
    if (r < 128) {
@@ -58,16 +58,15 @@ Number decrypt(const Number c, const Number p, const Number q) {
    if (Number negative_r = n - r; negative_r < 128)
       return negative_r;
 
-   Number s {modulo((rootp - rootq), n)};
+   Number s{modulo((rootp - rootq), n)};
 
    if (s < 128)
       return s;
 
-   Number negative_s {n - s};
+   Number negative_s{n - s};
 
    return negative_s;
 }
-
 
 Number encrypt(const Number source, const Number public_key) {
    return (source * source) % public_key;
@@ -81,6 +80,10 @@ std::vector<Number> encrypt_sequence(const std::vector<Number> &open_text, const
       auto encrypted_number{encrypt(number, open_key)}; // hack for non-ASCII symbols
       if (number < 0) {
          encrypted_number *= -1;
+      }
+
+      if (number == -128 || number == -127) {
+         crl.insert({encrypted_number, number});
       }
 
       encrypted.push_back(encrypted_number);
@@ -121,10 +124,10 @@ void decrypt_file(const std::string &source_file, const std::string &output_file
    write_string_to_file(output_file, message);
 }
 
-
 std::pair<const Number, const std::pair<const Number, const Number>> generate_rabin_key() {
+   // need to take prime numbers 3 mod 4 // means that number & 4 = 3
    const Number p{151};
-   const Number q{43};
+   const Number q{103};
    const Number n{p * q};
 
    return {n, {p, q}};
