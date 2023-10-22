@@ -116,7 +116,7 @@ void encrypt_file(const std::string &source_file, const std::string &output_file
    write_numbers_to_file(output_file, encrypted);
    print_numbers(message_numbers);
    print_numbers(encrypted);
-   write_string_to_file("decrypted.txt", convert_bytes_array_to_text(message_numbers));
+
 }
 
 void decrypt_file(const std::string &source_file, const std::string &output_file, const std::pair<const Number, const Number> &private_key) {
