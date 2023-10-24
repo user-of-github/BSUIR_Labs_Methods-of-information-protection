@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/Other/HomeWork/Methods Of Information Protection/LR5/gost_34_11_2012/gost_34_11.hpp
+cstdlib
+-
+cstring
+-
+exception
+-
+iostream
+-
+
+D:/Other/HomeWork/Methods Of Information Protection/LR5/gost_34_11_2012/main.cpp
+iostream
+-
+./gost_34_11.hpp
+D:/Other/HomeWork/Methods Of Information Protection/LR5/gost_34_11_2012/gost_34_11.hpp
+

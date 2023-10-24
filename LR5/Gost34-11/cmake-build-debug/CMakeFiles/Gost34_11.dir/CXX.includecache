@@ -1,0 +1,62 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/Other/HomeWork/Methods Of Information Protection/LR5/Gost34-11/consts.h
+iostream
+-
+vector
+-
+array
+-
+
+D:/Other/HomeWork/Methods Of Information Protection/LR5/Gost34-11/core.h
+algorithm
+-
+array
+-
+iostream
+-
+stdexcept
+-
+cassert
+-
+translations.h
+D:/Other/HomeWork/Methods Of Information Protection/LR5/Gost34-11/translations.h
+numbers_sums.h
+D:/Other/HomeWork/Methods Of Information Protection/LR5/Gost34-11/numbers_sums.h
+
+D:/Other/HomeWork/Methods Of Information Protection/LR5/Gost34-11/main.cpp
+fstream
+-
+core.h
+D:/Other/HomeWork/Methods Of Information Protection/LR5/Gost34-11/core.h
+
+D:/Other/HomeWork/Methods Of Information Protection/LR5/Gost34-11/numbers_sums.h
+core.h
+D:/Other/HomeWork/Methods Of Information Protection/LR5/Gost34-11/core.h
+cstdint
+-
+vector
+-
+vector
+-
+cstdint
+-
+algorithm
+-
+array
+-
+
+D:/Other/HomeWork/Methods Of Information Protection/LR5/Gost34-11/translations.h
+algorithm
+-
+consts.h
+D:/Other/HomeWork/Methods Of Information Protection/LR5/Gost34-11/consts.h
+numbers_sums.h
+D:/Other/HomeWork/Methods Of Information Protection/LR5/Gost34-11/numbers_sums.h
+

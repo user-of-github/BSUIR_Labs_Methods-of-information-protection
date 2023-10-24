@@ -2,7 +2,6 @@ import numpy as np
 
 
 class HammingKeygen:
-    """Generates a public key for a message of size 2^kgen-1. Returns G^, the public key, as well as S G and P (Private Key Components)"""
 
     def __init__(self, kgen):
         self.kgen = kgen
@@ -14,11 +13,11 @@ class HammingKeygen:
         self.Gcarat = np.matmul(np.matmul(self.S, self.G), self.P) % 2
 
     def get_hamming_matrix(self):
-        """Generates Hamming Matrix given k and n"""
         identity = np.identity(self.kgen)
         identityk = np.identity(self.k)
         left = np.zeros((self.kgen, 2 ** self.kgen - 1 - self.kgen)).T
         rowcount = 0
+
         for i in range(2 ** self.kgen):
             if i + 1 != 1:
                 if (i + 1) & i != 0:
@@ -29,19 +28,21 @@ class HammingKeygen:
                     column = np.pad(column, (0, self.kgen - len(binarystring)), 'constant')
                     left[rowcount] = column.T[0]
                     rowcount += 1
+
         left = left.T
         self.paritycheck = np.block([left, identity])
         self.generator = np.block([identityk, np.transpose(left)])
+
         return self.generator
 
     def get_invertible_matrix(self):
-        "Generates S ,an invertible matrix of size K*l"
         S = np.random.randint(0, 2, (self.k, self.k), dtype=np.uint)
+
         while np.linalg.det(S) == 0:
             S = np.random.randint(0, 2, (self.k, self.k), dtype=np.uint)
+
         return S
 
     def generate_permute_matrix(self):
-        "Generates P, a random permutation of the identity matrix"
         P = np.identity(self.n, dtype=np.uint)
         return P[np.random.permutation(self.n)]
