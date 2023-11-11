@@ -4,13 +4,13 @@
 
 int main() {
    const Number p {578960};
-   const Number a {7};
+   const Number a {5778568585};
    const Number b {433088};
    const Number q {578};
-   const Number x {2};
+   const Number x {245698};
    const Number y {4018974};
 
-   const Number message {2023};
+   const Number message {2075752375983};
 
    Gost_34_10 gost {p, a, b, q, x, y};
    const auto key{ gost.generate_keys()};

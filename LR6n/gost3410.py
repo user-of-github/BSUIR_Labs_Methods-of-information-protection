@@ -12,7 +12,6 @@ class Gost3410:
 
     def generate_keys(self):
         d = random.randint(1, self.q - 1)
-        #d = 55441196065363246126355624130324183196576709222340016572108097750006097525544
         q_point = d * self.p_point
         return d, q_point
 
